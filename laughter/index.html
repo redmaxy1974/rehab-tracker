@@ -1,0 +1,1386 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Field Guide to Laughter</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="An interactive field guide to humor and laughter: the science, the virtues, a laugh synthesizer, a joke jar, a one-minute laughter practice and a daily laugh log.">
+<meta property="og:title" content="Ha! A Field Guide to Laughter">
+<meta property="og:description" content="Laughter is the oldest medicine we carry. It is free, contagious, and already inside you.">
+<meta property="og:image" content="https://field-guide-to-laughter.higgsfield.app/img/og.jpg">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="canonical" href="https://field-guide-to-laughter.higgsfield.app/">
+<meta name="theme-color" content="#FFF1EC">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='30' fill='%23FFB51F'/%3E%3Cpath d='M18 26q5-7 10 0M36 26q5-7 10 0' stroke='%2325123B' stroke-width='4' fill='none' stroke-linecap='round'/%3E%3Cpath d='M17 35h30q0 16-15 16t-15-16z' fill='%2325123B'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,300..800&family=DM+Mono:wght@400;500&family=Shrikhand&display=swap">
+<style>
+/* Layout: one scrolling story. Full-bleed photo bands alternate with blush text bands; content column max 1180px. */
+:root{
+  --bg:#FFF1EC; --bg-2:#FBDFD6; --card:#FFFFFF;
+  --fg:#25123B; --fg-2:#5F4A70; --line:rgba(37,18,59,.14);
+  --sun:#FFB51F; --coral:#E8452D; --lilac:#A98DF0; --mint:#5FC9A3; --sky:#79B8FF; --rose:#FFA9B8;
+  --bar:#CDBDF5;
+  --night:#1B1030; --on-night:#FFEDE6; --on-night-2:#D3C2DB;
+  --on-sun:#25123B; --face-ink:#2A1640;
+  --f-display:'Shrikhand', 'Cooper Black', Georgia, serif;
+  --f-body:'Bricolage Grotesque', 'Avenir Next', 'Segoe UI', system-ui, sans-serif;
+  --f-mono:'DM Mono', ui-monospace, 'SFMono-Regular', Menlo, monospace;
+  --wrap:1180px; --r:20px;
+  --ease-pop:cubic-bezier(.34,1.56,.64,1);
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#170E25; --bg-2:#221539; --card:#251840;
+    --fg:#FFEDE6; --fg-2:#C9B8D2; --line:rgba(255,237,230,.14);
+    --sun:#FFC23B; --coral:#FF6F55; --lilac:#BBA4FF; --mint:#72DBB5; --sky:#8CC4FF; --rose:#FFB5C2;
+    --bar:#4A3870; --night:#0F0819;
+    color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#170E25; --bg-2:#221539; --card:#251840;
+  --fg:#FFEDE6; --fg-2:#C9B8D2; --line:rgba(255,237,230,.14);
+  --sun:#FFC23B; --coral:#FF6F55; --lilac:#BBA4FF; --mint:#72DBB5; --sky:#8CC4FF; --rose:#FFB5C2;
+  --bar:#4A3870; --night:#0F0819;
+  color-scheme:dark;
+}
+
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth; -webkit-text-size-adjust:100%}
+@media (prefers-reduced-motion: reduce){ html{scroll-behavior:auto} }
+body{margin:0; background:var(--bg); color:var(--fg); font-family:var(--f-body); font-size:18px; line-height:1.6; font-variation-settings:"opsz" 18; overflow-x:hidden; -webkit-font-smoothing:antialiased}
+img,video{max-width:100%; display:block}
+[hidden]{display:none!important}
+a{color:inherit; text-decoration-color:var(--coral); text-underline-offset:.2em; text-decoration-thickness:2px}
+button{font:inherit; color:inherit}
+:focus-visible{outline:3px solid var(--coral); outline-offset:3px; border-radius:6px}
+h1,h2,h3{text-wrap:balance; margin:0}
+p{margin:0}
+
+.wrap{max-width:var(--wrap); margin-inline:auto; padding-left:max(16px, env(safe-area-inset-left, 0px)); padding-right:max(16px, env(safe-area-inset-right, 0px))}
+.band{padding-block:clamp(72px, 10vw, 140px)}
+.eyebrow{font-family:var(--f-mono); font-size:13px; letter-spacing:.14em; text-transform:uppercase; color:var(--coral); font-weight:500}
+.h2{font-family:var(--f-display); font-weight:400; font-size:clamp(40px, 6.4vw, 80px); line-height:1.02; letter-spacing:-.01em}
+.lead{font-size:clamp(19px, 2vw, 22px); color:var(--fg-2); max-width:62ch}
+.head{display:grid; gap:18px; margin-bottom:clamp(40px, 6vw, 72px)}
+.mono{font-family:var(--f-mono); font-variant-numeric:tabular-nums}
+
+/* Buttons */
+.btn{display:inline-flex; align-items:center; gap:10px; border:0; cursor:pointer; border-radius:999px; padding:14px 22px; font-weight:700; font-size:17px; line-height:1; text-decoration:none; transition:transform .25s var(--ease-pop), background-color .2s, box-shadow .2s}
+.btn:hover{transform:translateY(-2px) rotate(-1deg)}
+.btn:active{transform:translateY(1px) scale(.97)}
+.btn-sun{background:var(--sun); color:var(--on-sun); box-shadow:0 6px 0 color-mix(in srgb, var(--sun) 55%, #7a3d00)}
+.btn-sun:active{box-shadow:0 2px 0 color-mix(in srgb, var(--sun) 55%, #7a3d00)}
+.btn-ghost{background:transparent; color:inherit; box-shadow:inset 0 0 0 2px currentColor}
+.btn-quiet{background:var(--bg-2); color:var(--fg)}
+.btn svg{width:18px; height:18px; flex:none}
+
+/* Nav */
+.nav{position:sticky; top:env(safe-area-inset-top, 0px); z-index:40; background:color-mix(in srgb, var(--bg) 84%, transparent); backdrop-filter:saturate(1.4) blur(14px); -webkit-backdrop-filter:saturate(1.4) blur(14px); border-bottom:1px solid var(--line)}
+.nav .wrap{display:flex; align-items:center; gap:24px; height:64px}
+.brand{display:flex; align-items:baseline; gap:10px; text-decoration:none; white-space:nowrap}
+.brand b{font-family:var(--f-display); font-weight:400; font-size:28px; color:var(--coral); line-height:1}
+.brand span{font-size:14px; font-weight:600; color:var(--fg-2); font-variation-settings:"wdth" 85}
+.nav ul{display:flex; gap:22px; list-style:none; margin:0 0 0 auto; padding:0; font-size:15px; font-weight:600}
+.nav ul a{text-decoration:none; color:var(--fg-2)}
+.nav ul a:hover{color:var(--fg)}
+.nav-tools{display:flex; align-items:center; gap:10px; margin-left:auto}
+.nav ul + .nav-tools{margin-left:8px}
+.ha-count{font-family:var(--f-mono); font-size:13px; color:var(--fg-2); white-space:nowrap}
+.ha-count b{color:var(--fg); font-weight:500}
+.sound{display:inline-flex; align-items:center; gap:8px; border:1px solid var(--line); background:var(--card); border-radius:999px; padding:8px 14px; cursor:pointer; font-size:14px; font-weight:600}
+.sound svg{width:18px; height:18px}
+.sound[aria-pressed="false"] .on, .sound[aria-pressed="true"] .off{display:none}
+@media (max-width: 920px){ .nav ul{display:none} .brand span{display:none} }
+
+/* Hero */
+.hero{position:relative; color:var(--on-night); background:var(--night); overflow:hidden; isolation:isolate}
+.hero-media{position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:62% 40%; z-index:-2}
+.hero::before{content:""; position:absolute; inset:0; z-index:-1; background:linear-gradient(95deg, color-mix(in srgb, var(--night) 88%, transparent) 0%, color-mix(in srgb, var(--night) 62%, transparent) 38%, color-mix(in srgb, var(--night) 0%, transparent) 72%)}
+.hero .wrap{padding-block:clamp(88px, 13vw, 180px) clamp(72px, 10vw, 140px); display:grid; gap:22px; justify-items:start}
+.hero .eyebrow{color:var(--sun)}
+.ha{font-family:var(--f-display); font-weight:400; font-size:clamp(132px, 24vw, 300px); line-height:.86; letter-spacing:-.02em; cursor:pointer; user-select:none; display:flex; margin-left:-.04em; color:var(--sun); text-shadow:0 .04em 0 color-mix(in srgb, var(--coral) 80%, #000)}
+.ha span{display:inline-block; transform-origin:50% 90%; transition:transform .35s var(--ease-pop)}
+.ha:hover span:nth-child(1){transform:rotate(-6deg) translateY(-4px)}
+.ha:hover span:nth-child(2){transform:rotate(5deg) translateY(-12px)}
+.ha:hover span:nth-child(3){transform:rotate(12deg) translateY(-6px)}
+.ha.go span{animation:hop .42s var(--ease-pop)}
+.ha.go span:nth-child(2){animation-delay:.07s} .ha.go span:nth-child(3){animation-delay:.14s}
+@keyframes hop{0%{transform:none}40%{transform:translateY(-22%) rotate(-6deg) scale(1.06)}100%{transform:none}}
+.hero-load .ha span{animation:drop .9s var(--ease-pop) both}
+.hero-load .ha span:nth-child(2){animation-delay:.12s} .hero-load .ha span:nth-child(3){animation-delay:.24s}
+@keyframes drop{0%{transform:translateY(-40%) rotate(-10deg); opacity:.2}100%{transform:none; opacity:1}}
+.hero h1{font-size:clamp(26px, 3.4vw, 42px); font-weight:700; line-height:1.15; max-width:21ch; font-variation-settings:"opsz" 60}
+.hero p.sub{font-size:clamp(17px, 1.6vw, 20px); max-width:46ch; color:var(--on-night-2)}
+.hero .actions{display:flex; flex-wrap:wrap; gap:14px; margin-top:8px}
+.hero .btn-ghost{color:var(--on-night)}
+@media (max-width: 700px){
+  .hero::before{background:linear-gradient(0deg, color-mix(in srgb, var(--night) 92%, transparent) 0%, color-mix(in srgb, var(--night) 70%, transparent) 55%, color-mix(in srgb, var(--night) 25%, transparent) 100%)}
+  .hero-media{object-position:70% 30%}
+  .hero .wrap{padding-top:140px}
+}
+
+/* Ribbon */
+.ribbon{background:var(--sun); color:var(--on-sun); overflow:hidden; border-block:2px solid var(--on-sun)}
+.ribbon-label{position:absolute; width:1px; height:1px; overflow:hidden; clip:rect(0 0 0 0)}
+.track{display:flex; width:max-content; animation:slide 48s linear infinite}
+.ribbon:hover .track, .ribbon:focus-within .track{animation-play-state:paused}
+.track ul{display:flex; list-style:none; margin:0; padding:0}
+.track li{display:flex; align-items:center}
+.track li::after{content:""; width:10px; height:10px; border-radius:50%; background:var(--coral); margin-inline:8px}
+.word{background:none; border:0; cursor:pointer; font-family:var(--f-display); font-size:clamp(24px, 3vw, 34px); padding:14px 16px; line-height:1; color:var(--on-sun); transition:transform .3s var(--ease-pop)}
+.word:hover{transform:rotate(-4deg) scale(1.12)}
+.word.go{animation:wobble .5s var(--ease-pop)}
+@keyframes wobble{30%{transform:scale(1.25) rotate(-6deg)}60%{transform:scale(.95) rotate(4deg)}}
+@keyframes slide{to{transform:translateX(-50%)}}
+@media (prefers-reduced-motion: reduce){ .track{animation:none; width:auto; flex-wrap:wrap; justify-content:center} .track ul[aria-hidden]{display:none} .track ul{flex-wrap:wrap; justify-content:center} }
+
+/* Science */
+.sci-grid{display:grid; grid-template-columns:minmax(0, 5fr) minmax(0, 7fr); gap:clamp(28px, 5vw, 64px); align-items:start}
+.dict{display:grid; gap:14px; padding-top:6px}
+.dict .word-head{font-size:clamp(34px, 4vw, 48px); font-weight:800; line-height:1; font-variation-settings:"opsz" 96, "wdth" 88; letter-spacing:-.01em}
+.dict .pron{font-family:var(--f-mono); font-size:15px; color:var(--fg-2)}
+.dict .pos{font-style:italic; color:var(--coral); font-weight:600}
+.dict ol{margin:0; padding-left:1.3em; display:grid; gap:10px; color:var(--fg)}
+.dict ol li::marker{font-family:var(--f-mono); color:var(--fg-2)}
+.dict .ety{font-size:15px; color:var(--fg-2); border-top:1px solid var(--line); padding-top:14px}
+.dict .ety i{color:var(--fg)}
+.lab{background:var(--card); border:1px solid var(--line); border-radius:var(--r); padding:clamp(18px, 3vw, 28px); display:grid; gap:18px; box-shadow:0 20px 50px -30px color-mix(in srgb, var(--fg) 40%, transparent)}
+.lab-top{display:flex; flex-wrap:wrap; justify-content:space-between; gap:8px 16px; align-items:baseline}
+.lab h3{font-size:22px; font-weight:800; font-variation-settings:"opsz" 40}
+.lab .hint{font-size:14px; color:var(--fg-2)}
+.scope{position:relative; border-radius:14px; background:var(--bg); border:1px solid var(--line); overflow:hidden}
+.scope canvas{display:block; width:100%; height:220px}
+.controls{display:grid; grid-template-columns:repeat(3, minmax(0,1fr)); gap:14px 20px}
+.ctl{display:grid; gap:6px; min-width:0}
+.ctl label{display:flex; justify-content:space-between; gap:8px; font-size:14px; font-weight:600}
+.ctl output{font-family:var(--f-mono); font-weight:400; color:var(--fg-2); font-variant-numeric:tabular-nums}
+input[type=range]{width:100%; accent-color:var(--coral); height:28px; cursor:pointer}
+.lab-actions{display:flex; flex-wrap:wrap; gap:10px; align-items:center}
+.lab-note{font-size:14px; color:var(--fg-2); max-width:60ch}
+@media (max-width: 900px){ .sci-grid{grid-template-columns:1fr} }
+@media (max-width: 560px){ .controls{grid-template-columns:1fr} }
+
+.facts{display:grid; grid-template-columns:repeat(4, minmax(0,1fr)); gap:clamp(16px, 2.4vw, 28px); margin-top:clamp(48px, 7vw, 88px); border-top:2px solid var(--fg); padding-top:28px}
+.fact{display:grid; gap:10px; align-content:start; min-width:0}
+.fact .big{font-family:var(--f-display); font-size:clamp(40px, 4.4vw, 56px); line-height:1; color:var(--coral)}
+.fact h3{font-size:19px; font-weight:800; line-height:1.25}
+.fact p{font-size:16px; color:var(--fg-2)}
+.fact cite{font-style:normal; font-family:var(--f-mono); font-size:12px; color:var(--fg-2); letter-spacing:.02em; border-top:1px dashed var(--line); padding-top:10px}
+@media (max-width: 980px){ .facts{grid-template-columns:repeat(2, minmax(0,1fr))} }
+@media (max-width: 520px){ .facts{grid-template-columns:1fr} }
+
+/* Virtues */
+.virtues{background:var(--bg-2)}
+.gallery{display:grid; grid-template-columns:repeat(3, minmax(0,1fr)); gap:clamp(20px, 3vw, 40px)}
+.gallery figure{margin:0; display:grid; gap:16px; align-content:start}
+.gallery figure:nth-child(3n+2){margin-top:clamp(0px, 8vw, 110px)}
+.gallery figure:nth-child(3n+3){margin-top:clamp(0px, 4vw, 55px)}
+.photo{position:relative; border-radius:var(--r); overflow:hidden; aspect-ratio:4/5; max-width:100%; background:var(--bg); box-shadow:0 30px 60px -36px color-mix(in srgb, var(--fg) 70%, transparent)}
+.photo img{width:100%; height:100%; object-fit:cover; transition:transform 1.2s cubic-bezier(.2,.7,.2,1)}
+.gallery figure:hover .photo img{transform:scale(1.05)}
+.tag{position:absolute; left:14px; top:14px; background:var(--sun); color:var(--on-sun); font-family:var(--f-display); font-size:20px; padding:6px 14px 8px; border-radius:999px; transform:rotate(-4deg); line-height:1}
+.gallery figcaption{display:grid; gap:8px}
+.gallery h3{font-size:clamp(22px, 2.2vw, 27px); font-weight:800; line-height:1.15; font-variation-settings:"opsz" 48}
+.gallery p{font-size:16.5px; color:var(--fg-2)}
+@media (max-width: 900px){ .gallery{grid-template-columns:repeat(2, minmax(0,1fr))} .gallery figure:nth-child(n){margin-top:0} .gallery figure:nth-child(2n){margin-top:56px} }
+@media (max-width: 560px){ .gallery{grid-template-columns:1fr} .gallery figure:nth-child(n){margin-top:0} }
+
+/* Contagion */
+.room-grid{display:grid; grid-template-columns:minmax(0, 4fr) minmax(0, 7fr); gap:clamp(28px, 5vw, 64px); align-items:center}
+.room-copy{display:grid; gap:20px}
+.room-stats{display:flex; gap:28px; flex-wrap:wrap}
+.stat{display:grid; gap:2px}
+.stat b{font-family:var(--f-display); font-weight:400; font-size:48px; line-height:1; color:var(--coral); font-variant-numeric:tabular-nums}
+.stat span{font-family:var(--f-mono); font-size:12px; letter-spacing:.1em; text-transform:uppercase; color:var(--fg-2)}
+.room{display:grid; grid-template-columns:repeat(4, minmax(0,1fr)); gap:clamp(8px, 1.6vw, 18px); padding:clamp(16px, 3vw, 32px); background:var(--card); border:1px solid var(--line); border-radius:28px; box-shadow:0 30px 60px -40px color-mix(in srgb, var(--fg) 60%, transparent)}
+.face{aspect-ratio:1; max-width:100%; border:0; background:none; padding:0; cursor:pointer; border-radius:50%; -webkit-tap-highlight-color:transparent}
+.face svg{width:100%; height:100%; overflow:visible}
+.face .body{fill:var(--c)}
+.face .ink{fill:var(--face-ink)}
+.face .stroke{fill:none; stroke:var(--face-ink); stroke-width:4.5; stroke-linecap:round}
+.face .cheek{fill:var(--face-ink); opacity:.12}
+.face .bob{transform-origin:50px 92px; transition:transform .3s var(--ease-pop)}
+.face:hover .bob{transform:scale(1.06) rotate(-4deg)}
+.face .laugh{display:none}
+.face[data-state="laughing"] .calm{display:none}
+.face[data-state="laughing"] .laugh{display:inline}
+.face[data-state="laughing"] .bob{animation:bounce var(--beat, .42s) ease-in-out infinite}
+.face[data-state="laughing"] .mouth{transform-origin:50px 62px; animation:chomp calc(var(--beat, .42s) / 2) ease-in-out infinite alternate}
+.face[data-state="recovering"] .bob{transform:rotate(3deg)}
+.face .tear{fill:var(--sky); stroke:var(--face-ink); stroke-width:2; opacity:0}
+.face[data-state="laughing"] .tear{animation:tear 1.6s ease-in infinite}
+@keyframes bounce{0%,100%{transform:translateY(0) rotate(-3deg)}50%{transform:translateY(-7px) rotate(3deg)}}
+@keyframes chomp{from{transform:scaleY(1)}to{transform:scaleY(.55)}}
+@keyframes tear{0%{opacity:0; transform:translate(0,0)}25%{opacity:1}100%{opacity:0; transform:translate(-4px,22px)}}
+@media (prefers-reduced-motion: reduce){ .face[data-state="laughing"] .bob, .face[data-state="laughing"] .mouth, .face[data-state="laughing"] .tear{animation:none} }
+@media (max-width: 900px){ .room-grid{grid-template-columns:1fr} }
+@media (min-width: 1100px){ .room{grid-template-columns:repeat(6, minmax(0,1fr))} }
+
+/* Joke jar */
+.jar-band{background:var(--bg-2)}
+.jar-grid{display:grid; grid-template-columns:minmax(0, 5fr) minmax(0, 6fr); gap:clamp(24px, 5vw, 64px); align-items:center}
+.jar-btn{position:relative; border:0; background:none; padding:0; cursor:pointer; justify-self:center; width:min(100%, 440px)}
+.jar-btn::before{content:""; position:absolute; inset:12% 8% 6%; border-radius:50%; background:radial-gradient(circle, color-mix(in srgb, var(--sun) 70%, transparent) 0%, transparent 65%); filter:blur(20px); z-index:0; transition:opacity .4s; opacity:.75}
+.jar-btn:hover::before{opacity:1}
+.jar-btn img{position:relative; z-index:1; width:100%; height:auto; transform-origin:50% 90%}
+.jar-btn.shake img{animation:shake .6s var(--ease-pop)}
+@keyframes shake{20%{transform:rotate(-7deg)}45%{transform:rotate(6deg)}70%{transform:rotate(-3deg)}100%{transform:none}}
+.jar-tip{position:absolute; z-index:2; right:2%; top:8%; background:var(--fg); color:var(--bg); font-weight:700; font-size:14px; padding:8px 14px; border-radius:999px; transform:rotate(6deg)}
+.slip{position:relative; background:var(--card); border-radius:6px; padding:clamp(24px, 4vw, 44px); box-shadow:0 2px 0 var(--line), 0 30px 60px -36px color-mix(in srgb, var(--fg) 60%, transparent); transform:rotate(-1.2deg); display:grid; gap:20px; min-height:300px; align-content:start}
+.slip::before{content:""; position:absolute; left:0; right:0; top:0; height:10px; background:repeating-linear-gradient(90deg, var(--sun) 0 18px, var(--coral) 18px 36px, var(--lilac) 36px 54px, var(--mint) 54px 72px); border-radius:6px 6px 0 0}
+.slip .num{font-family:var(--f-mono); font-size:13px; color:var(--fg-2); letter-spacing:.08em}
+.setup{font-size:clamp(24px, 2.8vw, 32px); font-weight:700; line-height:1.2; font-variation-settings:"opsz" 60}
+.punch{font-family:var(--f-display); font-size:clamp(26px, 3vw, 36px); line-height:1.15; color:var(--coral)}
+.slip-actions{display:flex; flex-wrap:wrap; gap:10px; align-items:center}
+.tally{font-family:var(--f-mono); font-size:13px; color:var(--fg-2); margin-left:auto}
+.slip.fly{animation:fly .65s var(--ease-pop)}
+@keyframes fly{0%{transform:translate(-30%, 12%) rotate(-14deg) scale(.6); opacity:0}100%{transform:rotate(-1.2deg); opacity:1}}
+@media (max-width: 860px){ .jar-grid{grid-template-columns:1fr} .jar-btn{width:min(80%, 340px)} }
+
+/* Practice */
+.practice{position:relative; color:var(--on-night); background:var(--night); isolation:isolate; overflow:hidden}
+.practice > img{position:absolute; inset:0; width:100%; height:100%; object-fit:cover; z-index:-2; object-position:50% 60%}
+.practice::before{content:""; position:absolute; inset:0; z-index:-1; background:linear-gradient(180deg, color-mix(in srgb, var(--night) 30%, transparent) 0%, color-mix(in srgb, var(--night) 82%, transparent) 46%, color-mix(in srgb, var(--night) 94%, transparent) 100%)}
+.practice .eyebrow{color:var(--sun)}
+.practice .lead{color:var(--on-night-2)}
+.yoga{display:grid; grid-template-columns:minmax(0, 5fr) minmax(0, 6fr); gap:clamp(28px, 5vw, 64px); align-items:center; margin-top:clamp(200px, 26vw, 360px)}
+.ring{position:relative; width:min(100%, 380px); aspect-ratio:1; justify-self:center}
+.ring svg{width:100%; height:100%; transform:rotate(-90deg)}
+.ring .track-c{fill:none; stroke:color-mix(in srgb, var(--on-night) 18%, transparent); stroke-width:14}
+.ring .prog{fill:none; stroke:var(--sun); stroke-width:14; stroke-linecap:round; transition:stroke-dashoffset .2s linear}
+.ring .breath{transform-box:fill-box; fill:color-mix(in srgb, var(--sun) 16%, transparent); transform-origin:50% 50%; transition:transform 1.2s ease-in-out}
+.ring-center{position:absolute; inset:0; display:grid; place-content:center; text-align:center; gap:6px; padding:18%}
+.ring-center .clock{font-family:var(--f-display); font-size:clamp(54px, 7vw, 76px); line-height:1; font-variant-numeric:tabular-nums}
+.ring-center .step-name{font-weight:700; font-size:18px; color:var(--sun)}
+.yoga-panel{display:grid; gap:20px}
+.cue{font-size:clamp(20px, 2.2vw, 26px); font-weight:600; line-height:1.3; min-height:3.9em; font-variation-settings:"opsz" 48}
+.steps{list-style:none; margin:0; padding:0; display:grid; gap:4px; counter-reset:s}
+.steps li{display:grid; grid-template-columns:28px minmax(0,1fr) auto; gap:12px; align-items:baseline; padding:8px 12px; border-radius:10px; color:var(--on-night-2); counter-increment:s; transition:background-color .3s, color .3s}
+.steps li::before{content:counter(s); font-family:var(--f-mono); font-size:13px}
+.steps li span.t{font-family:var(--f-mono); font-size:13px}
+.steps li[data-on]{background:color-mix(in srgb, var(--sun) 18%, transparent); color:var(--on-night); font-weight:700}
+.steps li[data-done]{opacity:.55}
+.yoga-actions{display:flex; gap:12px; flex-wrap:wrap}
+.practice .btn-ghost{color:var(--on-night)}
+.credit{font-size:14px; color:var(--on-night-2); max-width:60ch}
+@media (max-width: 860px){ .yoga{grid-template-columns:1fr; margin-top:clamp(120px, 30vw, 220px)} }
+
+/* Quotes */
+.quotes{position:relative; background:var(--night); color:var(--on-night); overflow:hidden; isolation:isolate}
+.quotes > img{position:absolute; right:0; top:0; height:100%; width:68%; object-fit:cover; z-index:-2; object-position:40% 60%}
+.quotes::before{content:""; position:absolute; inset:0; z-index:-1; background:linear-gradient(90deg, var(--night) 30%, color-mix(in srgb, var(--night) 55%, transparent) 62%, color-mix(in srgb, var(--night) 20%, transparent) 100%)}
+.quotes .eyebrow{color:var(--sun)}
+.q-wrap{display:grid; gap:28px; max-width:760px}
+.qmark{font-family:var(--f-display); font-size:140px; line-height:.5; color:var(--sun); height:60px}
+blockquote{margin:0; display:grid; gap:20px}
+blockquote p{font-size:clamp(28px, 3.8vw, 46px); line-height:1.16; font-weight:600; font-variation-settings:"opsz" 96, "wdth" 92; letter-spacing:-.01em}
+blockquote footer{font-family:var(--f-mono); font-size:14px; color:var(--on-night-2); letter-spacing:.04em}
+blockquote footer b{color:var(--on-night); font-weight:500}
+.q-nav{display:flex; align-items:center; gap:12px; flex-wrap:wrap}
+.q-btn{width:48px; height:48px; border-radius:50%; border:2px solid color-mix(in srgb, var(--on-night) 50%, transparent); background:transparent; color:var(--on-night); cursor:pointer; display:grid; place-items:center; transition:background-color .2s, transform .25s var(--ease-pop)}
+.q-btn:hover{background:color-mix(in srgb, var(--on-night) 12%, transparent); transform:scale(1.08)}
+.q-btn svg{width:20px; height:20px}
+.dots{display:flex; gap:8px; margin-left:8px}
+.dots button{width:10px; height:10px; border-radius:50%; border:0; padding:0; background:color-mix(in srgb, var(--on-night) 30%, transparent); cursor:pointer}
+.dots button[aria-current="true"]{background:var(--sun); width:26px; border-radius:6px}
+.q-fade{animation:qin .6s ease both}
+@keyframes qin{from{opacity:0; transform:translateY(10px)}to{opacity:1; transform:none}}
+@media (max-width: 760px){ .quotes > img{width:100%; opacity:.45} .quotes::before{background:linear-gradient(0deg, var(--night) 35%, color-mix(in srgb, var(--night) 70%, transparent) 100%)} }
+
+/* Log */
+.log-grid{display:grid; grid-template-columns:minmax(0, 5fr) minmax(0, 7fr); gap:clamp(28px, 5vw, 64px); align-items:start}
+.counter{display:grid; justify-items:start; gap:22px}
+.laughed{position:relative; width:220px; height:220px; border-radius:50%; border:0; cursor:pointer; background:var(--sun); color:var(--on-sun); font-family:var(--f-display); font-size:34px; line-height:1.05; box-shadow:0 10px 0 color-mix(in srgb, var(--sun) 55%, #7a3d00), 0 30px 60px -20px color-mix(in srgb, var(--sun) 80%, transparent); transition:transform .25s var(--ease-pop), box-shadow .2s}
+.laughed:hover{transform:translateY(-3px) rotate(-3deg)}
+.laughed:active{transform:translateY(6px); box-shadow:0 4px 0 color-mix(in srgb, var(--sun) 55%, #7a3d00)}
+.laughed small{display:block; font-family:var(--f-body); font-size:14px; font-weight:700; margin-top:6px}
+.today{display:flex; gap:32px; flex-wrap:wrap}
+.undo{background:none; border:0; padding:0; cursor:pointer; color:var(--fg-2); font-size:14px; text-decoration:underline; text-decoration-color:var(--line); text-underline-offset:.2em}
+.chart-card{background:var(--card); border:1px solid var(--line); border-radius:var(--r); padding:clamp(18px, 3vw, 28px); display:grid; gap:16px}
+.chart-top{display:flex; justify-content:space-between; gap:12px; align-items:center; flex-wrap:wrap}
+.chart-top h3{font-size:20px; font-weight:800}
+.chip{font-family:var(--f-mono); font-size:12px; padding:5px 10px; border-radius:999px; background:var(--bg-2); color:var(--fg-2)}
+.bars{display:grid; grid-template-columns:repeat(7, minmax(0,1fr)); gap:10px; height:220px; align-items:end; border-bottom:2px solid var(--fg); padding-top:20px; position:relative}
+.bars::before, .bars::after{content:""; position:absolute; left:0; right:0; border-top:1px dashed var(--line)}
+.bars::before{top:20px} .bars::after{top:calc(20px + (100% - 20px) / 2)}
+.col{position:relative; height:100%; display:flex; flex-direction:column; justify-content:flex-end; align-items:center; gap:6px; z-index:1}
+.col .v{font-family:var(--f-mono); font-size:13px; color:var(--fg-2); font-variant-numeric:tabular-nums}
+.col .b{width:min(100%, 44px); border-radius:4px 4px 0 0; background:var(--bar); min-height:3px; transition:height .5s var(--ease-pop)}
+.col[data-today] .b{background:var(--sun)}
+.col[data-today] .v{color:var(--fg); font-weight:500}
+.bars[data-example] .b{background:repeating-linear-gradient(135deg, var(--bar) 0 6px, transparent 6px 10px); box-shadow:inset 0 0 0 1.5px var(--bar)}
+.days{display:grid; grid-template-columns:repeat(7, minmax(0,1fr)); gap:10px; text-align:center; font-family:var(--f-mono); font-size:12px; color:var(--fg-2); margin-top:-8px}
+.days span[data-today]{color:var(--fg); font-weight:500}
+.assign{background:var(--bg-2); border-radius:var(--r); padding:clamp(18px, 3vw, 26px); display:grid; gap:12px; margin-top:20px}
+.assign p.task{font-size:20px; font-weight:700; line-height:1.3}
+.assign .row{display:flex; justify-content:space-between; gap:12px; align-items:center; flex-wrap:wrap}
+@media (max-width: 900px){ .log-grid{grid-template-columns:1fr} .laughed{width:190px; height:190px; font-size:30px} }
+
+/* Footer */
+.foot{background:var(--night); color:var(--on-night)}
+.foot .big{font-family:var(--f-display); font-size:clamp(48px, 9vw, 128px); line-height:.95; color:var(--sun)}
+.foot-grid{display:grid; gap:clamp(40px, 6vw, 72px)}
+.sources{font-size:14px; color:var(--on-night-2); display:grid; gap:10px}
+.sources h3{font-family:var(--f-mono); font-size:12px; letter-spacing:.14em; text-transform:uppercase; color:var(--on-night); font-weight:500}
+.sources ul{margin:0; padding-left:1.1em; display:grid; grid-template-columns:repeat(2, minmax(0,1fr)); gap:8px 40px}
+@media (max-width: 760px){ .sources ul{grid-template-columns:1fr} }
+.colophon{border-top:1px solid color-mix(in srgb, var(--on-night) 18%, transparent); margin-top:56px; padding-top:22px; display:flex; justify-content:space-between; gap:16px; flex-wrap:wrap; font-size:14px; color:var(--on-night-2)}
+
+/* Particles */
+.pop{position:fixed; left:0; top:0; pointer-events:none; z-index:80; font-family:var(--f-display); line-height:1; white-space:nowrap; will-change:transform, opacity; text-shadow:0 2px 0 color-mix(in srgb, var(--fg) 25%, transparent)}
+.sr{position:absolute; width:1px; height:1px; overflow:hidden; clip:rect(0 0 0 0); white-space:nowrap}
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap">
+    <a class="brand" href="#top"><b>Ha!</b><span>Field Guide to Laughter</span></a>
+    <ul>
+      <li><a href="#science">Science</a></li>
+      <li><a href="#virtues">Virtues</a></li>
+      <li><a href="#contagion">Contagion</a></li>
+      <li><a href="#jar">Joke jar</a></li>
+      <li><a href="#practice">Practice</a></li>
+      <li><a href="#log">Laugh log</a></li>
+    </ul>
+    <div class="nav-tools">
+      <span class="ha-count" title="Laughs played on this page"><b id="haCount">0</b> ha’s</span>
+      <button class="sound" id="soundToggle" type="button" aria-pressed="true">
+        <svg class="on" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 9v6h4l5 4V5L8 9H4z"/><path d="M16.5 8.5a5 5 0 0 1 0 7"/><path d="M19 6a8.5 8.5 0 0 1 0 12"/></svg>
+        <svg class="off" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 9v6h4l5 4V5L8 9H4z"/><path d="M17 9l5 6M22 9l-5 6"/></svg>
+        <span id="soundLabel">Sound on</span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main id="top">
+<section class="hero hero-load" aria-labelledby="hero-title">
+  <video class="hero-media" id="heroVideo" autoplay muted loop playsinline preload="metadata" poster="img/hero.webp" aria-hidden="true">
+    <source src="img/hero-loop.mp4" type="video/mp4">
+  </video>
+  <div class="wrap">
+    <span class="eyebrow">A field guide to laughter</span>
+    <div class="ha" id="bigHa" role="button" tabindex="0" aria-label="Ha! Press to hear a laugh"><span>H</span><span>a</span><span>!</span></div>
+    <h1 id="hero-title">The oldest medicine we carry is free, contagious, and already inside you.</h1>
+    <p class="sub">Laughter is older than language and shared by every human culture. It eases pain, loosens stress, and turns strangers into allies. This page is here to give you more of it.</p>
+    <div class="actions">
+      <button class="btn btn-sun" id="heroLaugh" type="button">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+        Play a laugh
+      </button>
+      <a class="btn btn-ghost" href="#science">Start reading</a>
+    </div>
+  </div>
+</section>
+
+<div class="ribbon" aria-labelledby="ribbon-label">
+  <span class="ribbon-label" id="ribbon-label">Words for laughter. Each one plays its own laugh.</span>
+  <div class="track" id="track"></div>
+</div>
+
+<section class="band" id="science" aria-labelledby="sci-title">
+  <div class="wrap">
+    <div class="head">
+      <span class="eyebrow">The science</span>
+      <h2 class="h2" id="sci-title">Your body on laughter</h2>
+      <p class="lead">Researchers have been taking laughter apart for decades. What they found is that a laugh is a precise, rhythmic, very old instrument, and that playing it changes you.</p>
+    </div>
+
+    <div class="sci-grid">
+      <div class="dict">
+        <div class="word-head">gelotology</div>
+        <div class="pron">/ˌdʒel.əˈtɒl.ə.dʒi/ &nbsp;<span class="pos">noun</span></div>
+        <ol>
+          <li>The study of laughter and its effects on the body and mind.</li>
+          <li>A field whose findings mostly agree with your grandmother.</li>
+        </ol>
+        <p class="ety">From Greek <i>gelōs</i>, “laughter.” The word for the study of laughter came into use in the 1960s. Laughter itself is several million years older.</p>
+      </div>
+
+      <div class="lab" aria-labelledby="lab-title">
+        <div class="lab-top">
+          <h3 id="lab-title">Anatomy of a “ha”</h3>
+          <span class="hint">Shape a laugh, then play it.</span>
+        </div>
+        <div class="scope">
+          <canvas id="scope" role="img" aria-label="Waveform of a synthesized laugh showing short notes that get quieter over time."></canvas>
+        </div>
+        <div class="controls">
+          <div class="ctl">
+            <label for="cPitch">Voice <output id="oPitch" for="cPitch">230 Hz</output></label>
+            <input type="range" id="cPitch" min="100" max="460" step="5" value="230">
+          </div>
+          <div class="ctl">
+            <label for="cNotes">Notes <output id="oNotes" for="cNotes">6</output></label>
+            <input type="range" id="cNotes" min="2" max="14" step="1" value="6">
+          </div>
+          <div class="ctl">
+            <label for="cGap">Note spacing <output id="oGap" for="cGap">210 ms</output></label>
+            <input type="range" id="cGap" min="120" max="320" step="5" value="210">
+          </div>
+        </div>
+        <div class="lab-actions">
+          <button class="btn btn-sun" id="labPlay" type="button">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+            Play this laugh
+          </button>
+          <button class="btn btn-quiet" id="labShuffle" type="button">Surprise me</button>
+        </div>
+        <p class="lab-note">The defaults follow Robert Provine’s measurements: each “ha” lasts about 75 milliseconds, notes repeat about every 210 milliseconds, and a laugh fades as it goes. We almost never laugh in the middle of a sentence. Laughter lands at the pauses, like punctuation.</p>
+      </div>
+    </div>
+
+    <div class="facts">
+      <article class="fact">
+        <div class="big">30×</div>
+        <h3>It’s a social signal</h3>
+        <p>People are about thirty times more likely to laugh with others than alone. Most laughter follows ordinary remarks, not jokes.</p>
+        <cite>Provine, <i>Laughter: A Scientific Investigation</i>, 2000</cite>
+      </article>
+      <article class="fact">
+        <div class="big">Opioids</div>
+        <h3>It dulls pain</h3>
+        <p>After bouts of social laughter, people tolerate more pain, and brain scans show the body’s own opioids being released.</p>
+        <cite>Dunbar et al., Proc. R. Soc. B, 2012 · Manninen et al., J. Neurosci., 2017</cite>
+      </article>
+      <article class="fact">
+        <div class="big">Wider</div>
+        <h3>It relaxes blood vessels</h3>
+        <p>Watching a funny film widened the lining of volunteers’ blood vessels. A stressful film made them narrow.</p>
+        <cite>Miller &amp; Fry, Medical Hypotheses, 2009</cite>
+      </article>
+      <article class="fact">
+        <div class="big">10M+</div>
+        <h3>It’s older than words</h3>
+        <p>Great apes laugh when tickled and during play. The sound traces back to a common ancestor more than 10 million years ago.</p>
+        <cite>Davila-Ross et al., Current Biology, 2009</cite>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="band virtues" id="virtues" aria-labelledby="vir-title">
+  <div class="wrap">
+    <div class="head">
+      <span class="eyebrow">The virtues</span>
+      <h2 class="h2" id="vir-title">Six things a good laugh does for a life</h2>
+    </div>
+    <div class="gallery">
+      <figure>
+        <div class="photo"><img src="img/bench.webp" alt="Two elderly friends on a park bench in autumn, leaning into each other with laughter." width="960" height="1200" loading="lazy"><span class="tag">connects</span></div>
+        <figcaption>
+          <h3>It closes the distance between people</h3>
+          <p>“Laughter is the shortest distance between two people,” said Victor Borge. Shared laughter tells someone you see the world the same way, even for a second. Old friends are often the ones who still make each other laugh.</p>
+        </figcaption>
+      </figure>
+      <figure>
+        <div class="photo"><img src="img/rain.webp" alt="A young woman laughing in the rain, her umbrella blown inside out on a glowing city street." width="960" height="1200" loading="lazy"><span class="tag">reframes</span></div>
+        <figcaption>
+          <h3>It turns bad luck into a story</h3>
+          <p>The ruined umbrella, the missed train, the wedding toast that went sideways. Humor gives you distance from what went wrong, and distance is where perspective lives.</p>
+        </figcaption>
+      </figure>
+      <figure>
+        <div class="photo"><img src="img/sunflower.webp" alt="A bearded man with his head thrown back laughing in a field of sunflowers at sunset." width="960" height="1200" loading="lazy"><span class="tag">releases</span></div>
+        <figcaption>
+          <h3>It lets the body exhale</h3>
+          <p>A real laugh works the diaphragm, the face, and the belly, then leaves the muscles looser than before. Many people describe the moment after a big laugh as the calmest they feel all day.</p>
+        </figcaption>
+      </figure>
+      <figure>
+        <div class="photo"><img src="img/tickle.webp" alt="A father on a living room rug being tickled by his two small children, all of them shrieking with laughter." width="960" height="1200" loading="lazy"><span class="tag">plays</span></div>
+        <figcaption>
+          <h3>It keeps play alive</h3>
+          <p>Children and young animals laugh most during rough-and-tumble play. Laughter says “this is a game, nobody is in danger.” Adults need that signal too.</p>
+        </figcaption>
+      </figure>
+      <figure>
+        <div class="photo"><img src="img/hospital.webp" alt="A nurse and an elderly patient in a sunny hospital room sharing a big laugh over a cup of tea." width="960" height="1200" loading="lazy"><span class="tag">comforts</span></div>
+        <figcaption>
+          <h3>It sits with us in hard rooms</h3>
+          <p>Humor does not cure illness. It does make waiting rooms, recovery wards, and long nights more bearable, and it reminds everyone in them that they are still people first.</p>
+        </figcaption>
+      </figure>
+      <figure>
+        <div class="photo"><img src="img/artist.webp" alt="A young artist in paint-splattered overalls laughing at a huge, chaotic, colorful canvas." width="960" height="1200" loading="lazy"><span class="tag">loosens</span></div>
+        <figcaption>
+          <h3>It frees up the mind</h3>
+          <p>In a classic experiment, people who had just watched a few minutes of comedy were far better at solving a tricky creative puzzle. Lightness makes room for new ideas.</p>
+        </figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<section class="band" id="contagion" aria-labelledby="con-title">
+  <div class="wrap room-grid">
+    <div class="room-copy">
+      <span class="eyebrow">Contagion</span>
+      <h2 class="h2" id="con-title">Catch it</h2>
+      <p class="lead">Hearing laughter primes the parts of your brain that move your face into a smile. That is why one laugh can travel around a whole room.</p>
+      <p>Tap anyone to start them laughing, then watch it spread to the people nearby.</p>
+      <div class="room-stats" aria-live="polite">
+        <div class="stat"><b id="roomNow">0</b><span>laughing now</span></div>
+        <div class="stat"><b id="roomTotal">0</b><span>laughs caught</span></div>
+      </div>
+      <div><button class="btn btn-quiet" id="roomReset" type="button">Calm the room</button></div>
+    </div>
+    <div class="room" id="room" aria-label="A room of twelve people. Tap one to make them laugh."></div>
+  </div>
+</section>
+
+<section class="band jar-band" id="jar" aria-labelledby="jar-title">
+  <div class="wrap">
+    <div class="head">
+      <span class="eyebrow">The joke jar</span>
+      <h2 class="h2" id="jar-title">Take one. They’re free.</h2>
+      <p class="lead">Thirty-two of the best worst jokes we know. Puns are the gateway humor: harmless, groan-worthy, and almost impossible not to repeat.</p>
+    </div>
+    <div class="jar-grid">
+      <button class="jar-btn" id="jarBtn" type="button" aria-label="Pull a joke from the jar">
+        <img src="img/jar.webp" alt="" width="760" height="760" loading="lazy">
+        <span class="jar-tip">Tap the jar</span>
+      </button>
+      <div class="slip" id="slip" aria-live="polite">
+        <span class="num" id="jokeNum">Slip 1 of 32</span>
+        <p class="setup" id="setup">Why don’t scientists trust atoms?</p>
+        <p class="punch" id="punch" hidden>Because they make up everything.</p>
+        <div class="slip-actions">
+          <button class="btn btn-sun" id="reveal" type="button">Tell me</button>
+          <span id="rate" hidden style="display:contents">
+            <button class="btn btn-sun" id="rateHa" type="button">Ha!</button>
+            <button class="btn btn-quiet" id="rateGroan" type="button">Groan</button>
+          </span>
+          <button class="btn btn-quiet" id="another" type="button">Another one</button>
+          <span class="tally" id="tally">0 ha · 0 groans</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="band practice" id="practice" aria-labelledby="pr-title">
+  <img src="img/yoga.webp" alt="" width="2000" height="1131" loading="lazy">
+  <div class="wrap">
+    <div class="head">
+      <span class="eyebrow">Practice</span>
+      <h2 class="h2" id="pr-title">One minute of laughter yoga</h2>
+      <p class="lead">Laughter yoga began in a Mumbai park in 1995. Its premise is simple: start with pretend laughter, and it soon turns real, especially in a group. Stand up, press start, and follow along.</p>
+    </div>
+    <div class="yoga">
+      <div class="ring">
+        <svg viewBox="0 0 300 300" aria-hidden="true">
+          <circle class="breath" id="breath" cx="150" cy="150" r="110"></circle>
+          <circle class="track-c" cx="150" cy="150" r="136"></circle>
+          <circle class="prog" id="prog" cx="150" cy="150" r="136" stroke-dasharray="854.5" stroke-dashoffset="854.5"></circle>
+        </svg>
+        <div class="ring-center">
+          <div class="clock mono" id="clock">1:00</div>
+          <div class="step-name" id="stepName">Clap and chant</div>
+        </div>
+      </div>
+      <div class="yoga-panel">
+        <p class="cue" id="cue" aria-live="polite">Clap along: ho, ho, ha-ha-ha. Keep the rhythm going.</p>
+        <ol class="steps" id="steps"></ol>
+        <div class="yoga-actions">
+          <button class="btn btn-sun" id="yStart" type="button">Start the minute</button>
+          <button class="btn btn-ghost" id="yReset" type="button">Reset</button>
+        </div>
+        <p class="credit">Laughter yoga was created by Dr. Madan Kataria and Madhuri Kataria. If you have a medical condition that makes vigorous laughing uncomfortable, keep it gentle.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="band quotes" aria-labelledby="q-title">
+  <img src="img/campfire.webp" alt="" width="2000" height="1131" loading="lazy">
+  <div class="wrap">
+    <div class="q-wrap">
+      <span class="eyebrow" id="q-title">Said around the fire</span>
+      <div class="qmark" aria-hidden="true">“</div>
+      <blockquote id="quote" aria-live="polite">
+        <p id="qText">Against the assault of laughter nothing can stand.</p>
+        <footer><b id="qWho">Mark Twain</b> · <span id="qSrc">The Mysterious Stranger</span></footer>
+      </blockquote>
+      <div class="q-nav">
+        <button class="q-btn" id="qPrev" type="button" aria-label="Previous quote"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M15 6l-6 6 6 6"/></svg></button>
+        <button class="q-btn" id="qNext" type="button" aria-label="Next quote"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg></button>
+        <div class="dots" id="dots" role="group" aria-label="Choose a quote"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="band" id="log" aria-labelledby="log-title">
+  <div class="wrap">
+    <div class="head">
+      <span class="eyebrow">Laugh log</span>
+      <h2 class="h2" id="log-title">Count today’s laughs</h2>
+      <p class="lead">What you notice, you get more of. Every time something cracks you up today, come back and press the button. Your log stays on this device only.</p>
+    </div>
+    <div class="log-grid">
+      <div class="counter">
+        <button class="laughed" id="laughed" type="button">I laughed!<small>add one</small></button>
+        <div class="today">
+          <div class="stat"><b id="todayN">0</b><span>today</span></div>
+          <div class="stat"><b id="streakN">0</b><span>day streak</span></div>
+          <div class="stat"><b id="bestN">0</b><span>best day</span></div>
+        </div>
+        <button class="undo" id="undo" type="button">Undo last laugh</button>
+      </div>
+      <div>
+        <div class="chart-card">
+          <div class="chart-top">
+            <h3>Laughs this week</h3>
+            <span class="chip" id="chip">Example week · press the button to start yours</span>
+          </div>
+          <div class="bars" id="bars" role="img" aria-label="Bar chart of laughs per day for the last seven days"></div>
+          <div class="days" id="days" aria-hidden="true"></div>
+        </div>
+        <div class="assign">
+          <span class="eyebrow">Today’s assignment</span>
+          <p class="task" id="task">Call the friend who makes you laugh hardest. Don’t text. Call.</p>
+          <div class="row">
+            <span class="mono" style="font-size:13px;color:var(--fg-2)">Small doses, taken daily.</span>
+            <button class="btn btn-quiet" id="taskNext" type="button">Another idea</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="band foot">
+  <div class="wrap">
+    <div class="foot-grid">
+      <p class="big">Go find something funny.</p>
+      <div class="sources">
+        <h3>Sources</h3>
+        <ul>
+          <li>Provine, R. R. (2000). <i>Laughter: A Scientific Investigation.</i> Viking.</li>
+          <li>Provine, R. R. (1993). Laughter punctuates speech. <i>Ethology</i>, 95, 291–298.</li>
+          <li>Dunbar, R. I. M., et al. (2012). Social laughter is correlated with an elevated pain threshold. <i>Proc. R. Soc. B</i>, 279, 1161–1167.</li>
+          <li>Manninen, S., et al. (2017). Social laughter releases endogenous opioids in humans. <i>J. Neurosci.</i>, 37, 6125–6131.</li>
+          <li>Miller, M., &amp; Fry, W. F. (2009). The effect of mirthful laughter on the human cardiovascular system. <i>Medical Hypotheses</i>, 73, 636–639.</li>
+          <li>Davila-Ross, M., Owren, M. J., &amp; Zimmermann, E. (2009). Reconstructing the evolution of laughter in great apes and humans. <i>Current Biology</i>, 19, 1106–1111.</li>
+          <li>Warren, J. E., et al. (2006). Positive emotions preferentially engage an auditory–motor “mirror” system. <i>J. Neurosci.</i>, 26, 13067–13075.</li>
+          <li>Isen, A. M., Daubman, K. A., &amp; Nowicki, G. P. (1987). Positive affect facilitates creative problem solving. <i>JPSP</i>, 52, 1122–1131.</li>
+        </ul>
+      </div>
+    </div>
+    <div class="colophon">
+      <span>Every laugh on this page is synthesized live in your browser.</span>
+      <a href="#top">Back to the top</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+(() => {
+'use strict';
+const $ = (s, r = document) => r.querySelector(s);
+const reduceMotion = matchMedia('(prefers-reduced-motion: reduce)');
+const store = {
+  get(k, d) { try { const v = localStorage.getItem(k); return v == null ? d : JSON.parse(v); } catch (e) { return d; } },
+  set(k, v) { try { localStorage.setItem(k, JSON.stringify(v)); } catch (e) {} }
+};
+const pick = a => a[Math.floor(Math.random() * a.length)];
+const css = name => getComputedStyle(document.documentElement).getPropertyValue(name).trim();
+
+/* ---------------- Laugh synthesizer ----------------
+   A laugh is a train of short voiced notes ("ha") with an aspirated onset,
+   shaped by vowel formants, each a little quieter and lower than the last. */
+function mulberry32(a) { return function () { a |= 0; a = a + 0x6D2B79F5 | 0; let t = Math.imul(a ^ a >>> 15, 1 | a); t = t + Math.imul(t ^ t >>> 7, 61 | t) ^ t; return ((t ^ t >>> 14) >>> 0) / 4294967296; }; }
+
+const VOWELS = {
+  a: [[800, 7, 3.2], [1250, 9, 2.2], [2600, 11, 1.0]],
+  e: [[560, 7, 3.0], [1800, 10, 2.0], [2550, 11, 1.0]],
+  i: [[320, 7, 3.0], [2300, 11, 2.4], [3000, 12, 1.0]],
+  o: [[500, 7, 3.4], [880, 9, 2.0], [2500, 11, 0.6]],
+  u: [[360, 7, 3.6], [780, 9, 1.6], [2400, 11, 0.5]]
+};
+const BASE = { pitch: 230, notes: 6, noteMs: 75, gapMs: 210, decay: 0.86, droop: 0.12, vowel: 'a', wave: 'sawtooth', breath: 0.35, inhale: true, volume: 1 };
+const TYPES = {
+  'ha-ha': { pitch: 240, notes: 2, noteMs: 85, gapMs: 220, inhale: false },
+  giggle: { pitch: 390, notes: 9, noteMs: 55, gapMs: 150, vowel: 'i', decay: 0.9 },
+  chuckle: { pitch: 125, notes: 5, noteMs: 80, gapMs: 190, vowel: 'u', volume: 0.85, inhale: false },
+  guffaw: { pitch: 165, notes: 7, noteMs: 115, gapMs: 245, breath: 0.6, volume: 1.15 },
+  titter: { pitch: 430, notes: 4, noteMs: 45, gapMs: 135, vowel: 'i', inhale: false, volume: 0.85 },
+  cackle: { pitch: 340, notes: 11, noteMs: 60, gapMs: 160, wave: 'square', decay: 0.93, volume: 0.6 },
+  hoot: { pitch: 270, notes: 5, noteMs: 120, gapMs: 260, vowel: 'u', wave: 'triangle', volume: 1.3 },
+  snicker: { pitch: 300, notes: 6, noteMs: 40, gapMs: 125, vowel: 'i', breath: 1.1, volume: 0.85, inhale: false },
+  'belly laugh': { pitch: 118, notes: 9, noteMs: 105, gapMs: 235, vowel: 'o', breath: 0.5, decay: 0.9, volume: 1.15 },
+  chortle: { pitch: 195, notes: 6, noteMs: 85, gapMs: 200, vowel: 'o' },
+  hee: { pitch: 350, notes: 6, noteMs: 70, gapMs: 180, vowel: 'i' },
+  ho: { pitch: 150, notes: 5, noteMs: 95, gapMs: 240, vowel: 'o', inhale: false },
+  'tee-hee': { pitch: 380, notes: 2, noteMs: 120, gapMs: 270, vowel: 'i', decay: 1, inhale: false }
+};
+
+function plan(opts = {}, seed) {
+  const P = Object.assign({}, BASE, opts);
+  const rnd = mulberry32(seed == null ? (Math.random() * 1e9) | 0 : seed);
+  const notes = []; let t = 0;
+  for (let i = 0; i < P.notes; i++) {
+    const k = P.notes > 1 ? i / (P.notes - 1) : 0;
+    notes.push({
+      t,
+      dur: P.noteMs / 1000 * (0.85 + rnd() * 0.3),
+      amp: Math.pow(P.decay, i) * (0.82 + rnd() * 0.18),
+      f0: P.pitch * (1 - P.droop * k) * (1 + (rnd() - 0.5) * 0.06)
+    });
+    t += P.gapMs / 1000 * (0.9 + rnd() * 0.2);
+  }
+  const last = notes[notes.length - 1];
+  const end = last.t + last.dur + 0.05;
+  return { P, notes, inhaleAt: end + 0.06, total: end + (P.inhale ? 0.45 : 0.05) };
+}
+
+const Sound = {
+  ctx: null, master: null, noise: null, voices: 0,
+  on: store.get('ha.sound', true),
+  ensure() {
+    if (!this.ctx) {
+      const AC = window.AudioContext || window.webkitAudioContext;
+      if (!AC) return null;
+      // iOS: ask for the "playback" audio session so laughs play even when the
+      // Ring/Silent switch is set to silent (Safari 16.4+).
+      try { if (navigator.audioSession) navigator.audioSession.type = 'playback'; } catch (e) {}
+      const c = new AC();
+      const master = c.createGain(); master.gain.value = 1.6;
+      const comp = c.createDynamicsCompressor();
+      comp.threshold.value = -22; comp.knee.value = 6; comp.ratio.value = 10; comp.attack.value = 0.003; comp.release.value = 0.15;
+      const makeup = c.createGain(); makeup.gain.value = 1.2;
+      master.connect(comp); comp.connect(makeup); makeup.connect(c.destination);
+      this.ctx = c; this.master = master; this.noise = makeNoise(c);
+    }
+    if (this.ctx.state !== 'running') { const r = this.ctx.resume(); if (r && r.catch) r.catch(() => {}); }
+    return this.ctx;
+  },
+  // Called from the first tap or key press anywhere on the page. Starting the
+  // audio engine inside a real user gesture is what browsers require, and the
+  // silent <audio> element moves older iPhones onto the media channel.
+  unlock() {
+    const c = this.ensure(); if (!c) return;
+    try { const b = c.createBuffer(1, 1, c.sampleRate); const s = c.createBufferSource(); s.buffer = b; s.connect(c.destination); s.start(0); } catch (e) {}
+    if (!this.tag) {
+      try {
+        this.tag = new Audio(SILENT_WAV);
+        this.tag.setAttribute('playsinline', ''); this.tag.loop = true;
+        const p = this.tag.play(); if (p && p.catch) p.catch(() => {});
+      } catch (e) {}
+    }
+  },
+  play(pl, { pan = 0, delay = 0 } = {}) {
+    if (!this.on) return false;
+    const c = this.ensure(); if (!c) return false;
+    const go = () => {
+      const t0 = c.currentTime + 0.03 + delay;
+      const end = schedule(c, this.master, this.noise, pl, t0, pan);
+      this.voices++;
+      setTimeout(() => { this.voices = Math.max(0, this.voices - 1); }, (end - c.currentTime) * 1000 + 60);
+    };
+    if (c.state === 'running') go();
+    else c.resume().then(go, () => {});
+    return true;
+  },
+  clap(accent = 1) {
+    if (!this.on) return;
+    const c = this.ensure(); if (!c) return;
+    const t = c.currentTime + 0.01;
+    const src = c.createBufferSource(); src.buffer = this.noise;
+    const hp = c.createBiquadFilter(); hp.type = 'bandpass'; hp.frequency.value = 1500; hp.Q.value = 0.9;
+    const g = c.createGain();
+    g.gain.setValueAtTime(0.0001, t);
+    [0, 0.011, 0.022].forEach(o => { g.gain.setValueAtTime(0.9 * accent, t + o); g.gain.exponentialRampToValueAtTime(0.08, t + o + 0.009); });
+    g.gain.exponentialRampToValueAtTime(0.0001, t + 0.16);
+    src.connect(hp); hp.connect(g); g.connect(this.master);
+    src.start(t, Math.random() * 0.5); src.stop(t + 0.2);
+  }
+};
+
+const SILENT_WAV = 'data:audio/wav;base64,UklGRrQBAABXQVZFZm10IBAAAAABAAEAQB8AAEAfAAABAAgAZGF0YZABAACAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICA';
+document.addEventListener('visibilitychange', () => { if (!Sound.tag) return; if (document.hidden) Sound.tag.pause(); else if (Sound.on) { const p = Sound.tag.play(); if (p && p.catch) p.catch(() => {}); } });
+['pointerdown', 'touchend', 'click', 'keydown'].forEach(ev => document.addEventListener(ev, () => { if (Sound.on) Sound.unlock(); }, { capture: true, passive: true }));
+
+function makeNoise(c) {
+  const b = c.createBuffer(1, c.sampleRate, c.sampleRate);
+  const d = b.getChannelData(0);
+  for (let i = 0; i < d.length; i++) d[i] = Math.random() * 2 - 1;
+  return b;
+}
+
+function schedule(c, dest, noise, pl, t0, pan) {
+  const P = pl.P;
+  const out = c.createGain(); out.gain.value = P.volume;
+  if (c.createStereoPanner) { const sp = c.createStereoPanner(); sp.pan.value = pan; out.connect(sp); sp.connect(dest); }
+  else out.connect(dest);
+  const shift = Math.pow(P.pitch / 200, 0.18);
+  const voice = c.createGain(); voice.gain.value = 1;
+  (VOWELS[P.vowel] || VOWELS.a).forEach(([f, q, g]) => {
+    const bp = c.createBiquadFilter(); bp.type = 'bandpass'; bp.frequency.value = f * shift; bp.Q.value = q;
+    const gg = c.createGain(); gg.gain.value = g;
+    voice.connect(bp); bp.connect(gg); gg.connect(out);
+  });
+  for (const n of pl.notes) {
+    const s = t0 + n.t, e = s + n.dur;
+    const osc = c.createOscillator(); osc.type = P.wave;
+    osc.frequency.setValueAtTime(n.f0 * 1.1, s);
+    osc.frequency.exponentialRampToValueAtTime(n.f0 * 0.92, e);
+    const env = c.createGain();
+    env.gain.setValueAtTime(0.0001, s);
+    env.gain.exponentialRampToValueAtTime(n.amp, s + 0.012);
+    env.gain.setValueAtTime(n.amp, s + n.dur * 0.6);
+    env.gain.exponentialRampToValueAtTime(0.0001, e + 0.04);
+    osc.connect(env); env.connect(voice);
+    osc.start(s); osc.stop(e + 0.06);
+    if (P.breath > 0) {
+      const nz = c.createBufferSource(); nz.buffer = noise;
+      const ng = c.createGain();
+      ng.gain.setValueAtTime(0.0001, s);
+      ng.gain.exponentialRampToValueAtTime(Math.max(0.001, n.amp * P.breath), s + 0.008);
+      ng.gain.exponentialRampToValueAtTime(0.0001, s + 0.03 + n.dur * 0.35);
+      nz.connect(ng); ng.connect(voice);
+      nz.start(s, Math.random() * 0.5); nz.stop(e + 0.05);
+    }
+  }
+  let end = t0 + pl.total;
+  if (P.inhale) {
+    const s = t0 + pl.inhaleAt;
+    const nz = c.createBufferSource(); nz.buffer = noise;
+    const bp = c.createBiquadFilter(); bp.type = 'bandpass'; bp.Q.value = 2.5;
+    bp.frequency.setValueAtTime(700, s); bp.frequency.exponentialRampToValueAtTime(1700, s + 0.3);
+    const g = c.createGain();
+    g.gain.setValueAtTime(0.0001, s);
+    g.gain.exponentialRampToValueAtTime(0.5, s + 0.12);
+    g.gain.exponentialRampToValueAtTime(0.0001, s + 0.32);
+    nz.connect(bp); bp.connect(g); g.connect(out);
+    nz.start(s, Math.random() * 0.4); nz.stop(s + 0.35);
+    end = s + 0.36;
+  }
+  return end;
+}
+
+/* ---------------- Shared bits: counter, particles ---------------- */
+let haTotal = store.get('ha.total', 0);
+const haCount = $('#haCount');
+const fmt = new Intl.NumberFormat();
+haCount.textContent = fmt.format(haTotal);
+function bump(n = 1) { haTotal += n; haCount.textContent = fmt.format(haTotal); store.set('ha.total', haTotal); }
+
+function laugh(opts, extra = {}) {
+  const pl = plan(opts, extra.seed);
+  const played = Sound.play(pl, extra);
+  bump(pl.notes.length);
+  return played;
+}
+
+const POP_WORDS = ['ha', 'ha', 'ha!', 'HA', 'hee', 'ho', 'heh', 'ha-ha'];
+const POP_COLORS = ['--sun', '--coral', '--lilac', '--mint', '--sky', '--rose'];
+let popsLive = 0;
+function burst(x, y, count = 9) {
+  if (reduceMotion.matches) count = Math.min(count, 2);
+  for (let i = 0; i < count && popsLive < 60; i++) {
+    const s = document.createElement('span');
+    s.className = 'pop'; s.setAttribute('aria-hidden', 'true');
+    s.textContent = pick(POP_WORDS);
+    s.style.color = `var(${pick(POP_COLORS)})`;
+    s.style.fontSize = (18 + Math.random() * 28) + 'px';
+    document.body.appendChild(s); popsLive++;
+    const ang = -Math.PI / 2 + (Math.random() - 0.5) * Math.PI * 1.2;
+    const dist = 70 + Math.random() * 130;
+    const dx = Math.cos(ang) * dist, dy = Math.sin(ang) * dist, rot = (Math.random() - 0.5) * 70;
+    const from = `translate(${x}px, ${y}px) translate(-50%, -50%)`;
+    const a = s.animate([
+      { transform: `${from} scale(.3)`, opacity: 1 },
+      { transform: `translate(${x + dx}px, ${y + dy}px) translate(-50%, -50%) scale(1) rotate(${rot}deg)`, opacity: 1, offset: 0.6 },
+      { transform: `translate(${x + dx * 1.15}px, ${y + dy * 1.15 + 40}px) translate(-50%, -50%) scale(.85) rotate(${rot * 1.4}deg)`, opacity: 0 }
+    ], { duration: 1000 + Math.random() * 600, easing: 'cubic-bezier(.2,.7,.3,1)', fill: 'forwards' });
+    a.onfinish = () => { s.remove(); popsLive--; };
+  }
+}
+function burstFrom(el, e, count) {
+  let x, y;
+  if (e && e.clientX) { x = e.clientX; y = e.clientY; }
+  else { const r = el.getBoundingClientRect(); x = r.left + r.width / 2; y = r.top + r.height / 2; }
+  burst(x, y, count);
+}
+function retrigger(el, cls) { el.classList.remove(cls); void el.offsetWidth; el.classList.add(cls); }
+
+/* ---------------- Sound toggle ---------------- */
+const soundBtn = $('#soundToggle'), soundLabel = $('#soundLabel');
+function renderSound() { soundBtn.setAttribute('aria-pressed', String(Sound.on)); soundLabel.textContent = Sound.on ? 'Sound on' : 'Sound off'; }
+soundBtn.addEventListener('click', () => { Sound.on = !Sound.on; store.set('ha.sound', Sound.on); renderSound(); if (Sound.on) laugh(TYPES['ha-ha']); });
+renderSound();
+
+/* ---------------- Hero ---------------- */
+const hero = $('.hero');
+setTimeout(() => hero.classList.remove('hero-load'), 1400);
+const bigHa = $('#bigHa');
+const heroTypes = ['ha-ha', 'giggle', 'guffaw', 'belly laugh', 'cackle', 'chortle', 'hee'];
+function heroLaugh(e, el) {
+  const name = pick(heroTypes);
+  laugh(name === 'ha-ha' ? {} : TYPES[name]);
+  retrigger(bigHa, 'go');
+  burstFrom(el, e, 12);
+}
+bigHa.addEventListener('click', e => heroLaugh(e, bigHa));
+bigHa.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); heroLaugh(null, bigHa); } });
+$('#heroLaugh').addEventListener('click', e => heroLaugh(e, e.currentTarget));
+const vid = $('#heroVideo');
+function syncVideo() { if (!vid) return; if (reduceMotion.matches) vid.pause(); else { const p = vid.play(); if (p && p.catch) p.catch(() => {}); } }
+reduceMotion.addEventListener ? reduceMotion.addEventListener('change', syncVideo) : 0;
+syncVideo();
+
+/* ---------------- Ribbon of laugh words ---------------- */
+const track = $('#track');
+const WORDS = ['ha-ha', 'giggle', 'chuckle', 'guffaw', 'titter', 'cackle', 'hoot', 'snicker', 'belly laugh', 'chortle', 'hee', 'ho', 'tee-hee'];
+for (let copy = 0; copy < 2; copy++) {
+  const ul = document.createElement('ul');
+  if (copy) ul.setAttribute('aria-hidden', 'true');
+  WORDS.forEach(w => {
+    const li = document.createElement('li');
+    const b = document.createElement('button');
+    b.type = 'button'; b.className = 'word'; b.textContent = w; b.dataset.w = w;
+    if (copy) b.tabIndex = -1; else b.setAttribute('aria-label', `Play a ${w}`);
+    li.appendChild(b); ul.appendChild(li);
+  });
+  track.appendChild(ul);
+}
+track.addEventListener('click', e => {
+  const b = e.target.closest('.word'); if (!b) return;
+  laugh(TYPES[b.dataset.w]);
+  retrigger(b, 'go');
+  burstFrom(b, e, 6);
+});
+
+/* ---------------- Anatomy lab ---------------- */
+const canvas = $('#scope'), g2 = canvas.getContext('2d');
+const cPitch = $('#cPitch'), cNotes = $('#cNotes'), cGap = $('#cGap');
+let labSeed = 7, labPlan = null, playhead = -1, phStart = 0, phRaf = 0;
+function labOpts() { return { pitch: +cPitch.value, notes: +cNotes.value, gapMs: +cGap.value }; }
+function rebuild() {
+  $('#oPitch').textContent = cPitch.value + ' Hz';
+  $('#oNotes').textContent = cNotes.value;
+  $('#oGap').textContent = cGap.value + ' ms';
+  labPlan = plan(labOpts(), labSeed);
+  draw();
+}
+function draw() {
+  const dpr = Math.min(window.devicePixelRatio || 1, 2);
+  const w = canvas.clientWidth, h = canvas.clientHeight;
+  if (!w) return;
+  if (canvas.width !== Math.round(w * dpr) || canvas.height !== Math.round(h * dpr)) { canvas.width = Math.round(w * dpr); canvas.height = Math.round(h * dpr); }
+  g2.setTransform(dpr, 0, 0, dpr, 0, 0);
+  g2.clearRect(0, 0, w, h);
+  const ink = css('--fg'), ink2 = css('--fg-2'), coral = css('--coral'), sun = css('--sun'), line = css('--line');
+  const padL = 14, padR = 14, top = 34, bot = 34;
+  const span = Math.max(labPlan.total, 0.6);
+  const X = t => padL + (t / span) * (w - padL - padR);
+  const mid = top + (h - top - bot) / 2, A = (h - top - bot) / 2;
+  // midline
+  g2.strokeStyle = line; g2.lineWidth = 1; g2.beginPath(); g2.moveTo(padL, mid); g2.lineTo(w - padR, mid); g2.stroke();
+  // waveform
+  const rnd = mulberry32(labSeed * 31 + labPlan.notes.length);
+  const step = 2;
+  for (const n of labPlan.notes) {
+    const x0 = X(n.t), x1 = X(n.t + n.dur + 0.04);
+    const played = playhead >= n.t;
+    g2.fillStyle = played ? sun : coral;
+    for (let x = x0; x <= x1; x += step) {
+      const tt = (x - x0) / Math.max(1, x1 - x0);
+      const env = tt < 0.12 ? tt / 0.12 : tt < 0.7 ? 1 : Math.max(0, 1 - (tt - 0.7) / 0.3);
+      const a = env * n.amp * A * (0.55 + 0.45 * rnd());
+      g2.fillRect(x, mid - a, 1.4, a * 2);
+    }
+  }
+  if (labPlan.P.inhale) {
+    const x0 = X(labPlan.inhaleAt), x1 = X(labPlan.inhaleAt + 0.3);
+    g2.fillStyle = ink2;
+    for (let x = x0; x <= x1; x += step) {
+      const tt = (x - x0) / Math.max(1, x1 - x0);
+      const a = Math.sin(tt * Math.PI) * 0.16 * A * (0.5 + 0.5 * rnd());
+      g2.fillRect(x, mid - a, 1, a * 2);
+    }
+  }
+  // decay line over peaks
+  g2.setLineDash([4, 5]); g2.strokeStyle = ink2; g2.lineWidth = 1.2; g2.beginPath();
+  labPlan.notes.forEach((n, i) => { const x = X(n.t + n.dur * 0.35), y = mid - n.amp * A - 4; i ? g2.lineTo(x, y) : g2.moveTo(x, y); });
+  g2.stroke(); g2.setLineDash([]);
+  // annotations
+  g2.font = '500 12px "DM Mono", ui-monospace, monospace'; g2.fillStyle = ink; g2.textBaseline = 'middle';
+  const n0 = labPlan.notes[0];
+  const bracket = (xa, xb, y, label, align) => {
+    g2.strokeStyle = ink; g2.lineWidth = 1.2; g2.beginPath();
+    g2.moveTo(xa, y - 5); g2.lineTo(xa, y); g2.lineTo(xb, y); g2.lineTo(xb, y - 5); g2.stroke();
+    g2.textAlign = align; g2.fillText(label, align === 'left' ? xa : (xa + xb) / 2, y + 12);
+  };
+  bracket(X(n0.t), X(n0.t + labPlan.P.noteMs / 1000), h - 26, `note ≈ ${labPlan.P.noteMs} ms`, 'left');
+  if (labPlan.notes.length > 1) {
+    const n1 = labPlan.notes[1];
+    g2.strokeStyle = ink; g2.lineWidth = 1.2; g2.beginPath();
+    const yy = 16; g2.moveTo(X(n0.t), yy + 5); g2.lineTo(X(n0.t), yy); g2.lineTo(X(n1.t), yy); g2.lineTo(X(n1.t), yy + 5); g2.stroke();
+    g2.textAlign = 'left'; g2.fillText(`interval ≈ ${labPlan.P.gapMs} ms`, X(n1.t) + 8, yy);
+  }
+  const lastN = labPlan.notes[labPlan.notes.length - 1];
+  g2.textAlign = 'right'; g2.fillStyle = ink2;
+  const decayX = Math.min(w - padR, X(lastN.t + lastN.dur));
+  if (labPlan.notes.length > 2) g2.fillText('fades out', decayX, mid - lastN.amp * A - 18);
+  if (labPlan.P.inhale) { g2.textAlign = 'center'; g2.fillText('inhale', Math.min(w - padR - 24, X(labPlan.inhaleAt + 0.15)), h - 14); }
+  // playhead
+  if (playhead >= 0) { g2.strokeStyle = ink; g2.lineWidth = 2; g2.beginPath(); g2.moveTo(X(playhead), top - 8); g2.lineTo(X(playhead), h - bot + 8); g2.stroke(); }
+}
+function animatePlayhead() {
+  cancelAnimationFrame(phRaf);
+  phStart = performance.now() + 30;
+  const tick = now => {
+    playhead = Math.max(0, (now - phStart) / 1000);
+    if (playhead > labPlan.total) { playhead = -1; draw(); return; }
+    draw(); phRaf = requestAnimationFrame(tick);
+  };
+  phRaf = requestAnimationFrame(tick);
+}
+[cPitch, cNotes, cGap].forEach(i => i.addEventListener('input', rebuild));
+$('#labPlay').addEventListener('click', e => {
+  Sound.play(labPlan); bump(labPlan.notes.length);
+  if (!reduceMotion.matches) animatePlayhead();
+  burstFrom(e.currentTarget, e, 5);
+});
+$('#labShuffle').addEventListener('click', e => {
+  cPitch.value = 5 * Math.round((110 + Math.random() * 330) / 5);
+  cNotes.value = 3 + Math.floor(Math.random() * 10);
+  cGap.value = 5 * Math.round((140 + Math.random() * 150) / 5);
+  labSeed = (Math.random() * 1e6) | 0;
+  rebuild();
+  Sound.play(labPlan); bump(labPlan.notes.length);
+  if (!reduceMotion.matches) animatePlayhead();
+});
+rebuild();
+if ('ResizeObserver' in window) new ResizeObserver(() => draw()).observe(canvas);
+else addEventListener('resize', draw);
+matchMedia('(prefers-color-scheme: dark)').addEventListener?.('change', () => { draw(); drawChart(); });
+new MutationObserver(() => draw()).observe(document.documentElement, { attributes: true, attributeFilter: ['data-theme'] });
+
+/* ---------------- Contagion room ---------------- */
+const room = $('#room');
+const FACE_COLORS = ['--sun', '--coral', '--lilac', '--mint', '--sky', '--rose'];
+const FACE_TYPES = ['ha-ha', 'giggle', 'chuckle', 'guffaw', 'titter', 'hoot', 'chortle', 'hee', 'belly laugh', 'cackle', 'snicker', 'ho'];
+const FACE_SVG = `<svg viewBox="0 0 100 100" aria-hidden="true"><g class="bob">
+  <circle class="body" cx="50" cy="54" r="40"/>
+  <g class="calm"><circle class="ink" cx="36" cy="47" r="4.5"/><circle class="ink" cx="64" cy="47" r="4.5"/><path class="stroke" d="M40 66 q10 6 20 0"/></g>
+  <g class="laugh"><path class="stroke" d="M28 49 q8 -10 16 0"/><path class="stroke" d="M56 49 q8 -10 16 0"/>
+    <path class="ink mouth" d="M33 60 h34 q0 22 -17 22 q-17 0 -17 -22z"/>
+    <path class="tear" d="M27 54 q-4 6 0 9 q4 -3 0 -9z"/></g>
+  <ellipse class="cheek" cx="27" cy="62" rx="6" ry="3.5"/><ellipse class="cheek" cx="73" cy="62" rx="6" ry="3.5"/>
+</g></svg>`;
+const faces = [];
+let caught = 0, roomTimer = 0;
+for (let i = 0; i < 12; i++) {
+  const b = document.createElement('button');
+  b.type = 'button'; b.className = 'face';
+  b.style.setProperty('--c', `var(${FACE_COLORS[(i * 5) % 6]})`);
+  b.innerHTML = FACE_SVG;
+  const f = { el: b, i, state: 'calm', until: 0, type: FACE_TYPES[i], pitch: 0 };
+  f.pitch = (TYPES[f.type] || BASE).pitch || 230;
+  b.style.setProperty('--beat', (0.34 + (i % 4) * 0.04) + 's');
+  b.addEventListener('click', e => { if (f.state === 'laughing') { laugh(TYPES[f.type] || {}, { pan: panOf(f) }); burstFrom(b, e, 5); return; } catchLaugh(f); burstFrom(b, e, 6); });
+  room.appendChild(b); faces.push(f); setFace(f, 'calm');
+}
+function setFace(f, s) {
+  f.state = s; f.el.dataset.state = s;
+  f.el.setAttribute('aria-label', `Person ${f.i + 1}: ${s === 'laughing' ? 'laughing' : s === 'recovering' ? 'catching their breath' : 'calm'}`);
+}
+function panOf(f) { const r = f.el.getBoundingClientRect(); return Math.max(-0.8, Math.min(0.8, ((r.left + r.width / 2) / innerWidth) * 2 - 1)); }
+function catchLaugh(f) {
+  if (f.state === 'laughing') return;
+  setFace(f, 'laughing');
+  f.until = performance.now() + 3500 + Math.random() * 3000;
+  caught++;
+  if (Sound.voices < 5) laugh(Object.assign({}, TYPES[f.type] || {}, { notes: 5 + Math.floor(Math.random() * 5) }), { pan: panOf(f) });
+  else bump(1);
+  renderRoom();
+  if (!roomTimer) roomTimer = setInterval(roomTick, 550);
+}
+function roomTick() {
+  const now = performance.now();
+  const laughing = faces.filter(f => f.state === 'laughing');
+  const pos = faces.map(f => { const r = f.el.getBoundingClientRect(); return { x: r.left + r.width / 2, y: r.top + r.height / 2, s: r.width || 1 }; });
+  for (const f of faces) {
+    if (f.state === 'laughing' && now > f.until) { setFace(f, 'recovering'); f.until = now + 2600; }
+    else if (f.state === 'recovering' && now > f.until) setFace(f, 'calm');
+  }
+  for (const f of faces) {
+    if (f.state !== 'calm') continue;
+    let pressure = 0;
+    for (const L of laughing) {
+      const a = pos[f.i], b = pos[L.i];
+      const d = Math.hypot(a.x - b.x, a.y - b.y) / a.s;
+      pressure += Math.exp(-(d - 1) / 0.9);
+    }
+    if (Math.random() < 1 - Math.exp(-0.16 * pressure)) catchLaugh(f);
+  }
+  renderRoom();
+  if (!faces.some(f => f.state !== 'calm')) { clearInterval(roomTimer); roomTimer = 0; }
+}
+function renderRoom() {
+  $('#roomNow').textContent = faces.filter(f => f.state === 'laughing').length;
+  $('#roomTotal').textContent = caught;
+}
+$('#roomReset').addEventListener('click', () => { faces.forEach(f => setFace(f, 'calm')); clearInterval(roomTimer); roomTimer = 0; renderRoom(); });
+
+/* ---------------- Joke jar ---------------- */
+const JOKES = [
+  ['Why don’t scientists trust atoms?', 'Because they make up everything.'],
+  ['I told my wife she was drawing her eyebrows too high.', 'She looked surprised.'],
+  ['What do you call a fake noodle?', 'An impasta.'],
+  ['Why did the scarecrow win an award?', 'He was outstanding in his field.'],
+  ['I’m reading a book about anti-gravity.', 'It’s impossible to put down.'],
+  ['What do you call a bear with no teeth?', 'A gummy bear.'],
+  ['Why don’t eggs tell jokes?', 'They’d crack each other up.'],
+  ['What did the ocean say to the beach?', 'Nothing. It just waved.'],
+  ['Why couldn’t the bicycle stand up by itself?', 'It was two tired.'],
+  ['How does a penguin build its house?', 'Igloos it together.'],
+  ['I used to hate facial hair.', 'But then it grew on me.'],
+  ['What do you call a sleeping dinosaur?', 'A dino-snore.'],
+  ['Why did the math book look so sad?', 'It had too many problems.'],
+  ['What’s orange and sounds like a parrot?', 'A carrot.'],
+  ['Did you hear about the claustrophobic astronaut?', 'He just needed a little space.'],
+  ['Why do cows wear bells?', 'Because their horns don’t work.'],
+  ['What do you call cheese that isn’t yours?', 'Nacho cheese.'],
+  ['I only know 25 letters of the alphabet.', 'I don’t know y.'],
+  ['Why did the golfer bring two pairs of pants?', 'In case he got a hole in one.'],
+  ['What did one wall say to the other?', 'I’ll meet you at the corner.'],
+  ['How do you throw a party in outer space?', 'You planet.'],
+  ['What do you call a pony with a sore throat?', 'A little hoarse.'],
+  ['Parallel lines have so much in common.', 'It’s a shame they’ll never meet.'],
+  ['Why did the coffee file a police report?', 'It got mugged.'],
+  ['What’s the best thing about Switzerland?', 'I don’t know, but the flag is a big plus.'],
+  ['I asked the librarian for books about paranoia.', 'She whispered, “They’re right behind you.”'],
+  ['What do you call a fish wearing a bow tie?', 'Sofishticated.'],
+  ['Why don’t skeletons fight each other?', 'They don’t have the guts.'],
+  ['Want to hear a joke about the Earth’s rotation?', 'It really makes my day.'],
+  ['I’m on a seafood diet.', 'I see food, and I eat it.'],
+  ['What did the grape do when it got stepped on?', 'It let out a little wine.'],
+  ['Why can’t you hear a pterodactyl go to the bathroom?', 'Because the P is silent.']
+];
+const order = JOKES.map((_, i) => i).slice(1);
+for (let i = order.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [order[i], order[j]] = [order[j], order[i]]; }
+order.unshift(0);
+let jPos = 0;
+const tallyState = store.get('ha.jar', { ha: 0, groan: 0 });
+const slip = $('#slip'), setupEl = $('#setup'), punchEl = $('#punch'), revealBtn = $('#reveal'), rateEl = $('#rate'), jokeNum = $('#jokeNum');
+function renderTally() { $('#tally').textContent = `${tallyState.ha} ha · ${tallyState.groan} groan${tallyState.groan === 1 ? '' : 's'}`; }
+function showJoke() {
+  const j = JOKES[order[jPos % order.length]];
+  jokeNum.textContent = `Slip ${(jPos % order.length) + 1} of ${JOKES.length}`;
+  setupEl.textContent = j[0]; punchEl.textContent = j[1];
+  punchEl.hidden = true; revealBtn.hidden = false; rateEl.hidden = true;
+}
+function nextJoke(e) {
+  jPos++; showJoke();
+  if (!reduceMotion.matches) retrigger(slip, 'fly');
+  retrigger($('#jarBtn'), 'shake');
+  laugh({ pitch: 300, notes: 2, noteMs: 50, gapMs: 120, vowel: 'i', inhale: false, volume: 0.6 });
+}
+$('#jarBtn').addEventListener('click', nextJoke);
+$('#another').addEventListener('click', nextJoke);
+revealBtn.addEventListener('click', e => {
+  punchEl.hidden = false; revealBtn.hidden = true; rateEl.hidden = false;
+  laugh(TYPES.chuckle);
+  $('#rateHa').focus({ preventScroll: true });
+});
+$('#rateHa').addEventListener('click', e => { tallyState.ha++; store.set('ha.jar', tallyState); renderTally(); laugh(pick([TYPES.guffaw, TYPES['belly laugh'], TYPES.cackle, {}])); burstFrom(e.currentTarget, e, 10); });
+$('#rateGroan').addEventListener('click', e => { tallyState.groan++; store.set('ha.jar', tallyState); renderTally(); laugh({ pitch: 150, notes: 1, noteMs: 650, vowel: 'o', droop: 0, breath: 0.5, inhale: false, volume: 0.9 }); });
+showJoke(); renderTally();
+
+/* ---------------- Laughter yoga minute ---------------- */
+const STEPS = [
+  { name: 'Clap and chant', cue: 'Clap along: ho, ho, ha-ha-ha. Keep the rhythm going.', secs: 10, kind: 'clap' },
+  { name: 'Deep breath', cue: 'Breathe in and lift your arms. Breathe out slowly and let them fall.', secs: 8, kind: 'breath' },
+  { name: 'Greeting laugh', cue: 'Shake hands with an imaginary friend and laugh as you greet them.', secs: 10, kind: 'laugh', type: 'chortle' },
+  { name: 'Lion laugh', cue: 'Tongue out, eyes wide, hands up like paws. Roar a laugh.', secs: 8, kind: 'laugh', type: 'guffaw' },
+  { name: 'Silent laugh', cue: 'Laugh with your whole face and body, but make no sound at all.', secs: 8, kind: 'silent' },
+  { name: 'Hearty laugh', cue: 'Arms to the sky, head back, and laugh from the belly.', secs: 10, kind: 'laugh', type: 'belly laugh' },
+  { name: 'Very good, yay!', cue: 'Clap twice and shout: very good, very good, yay!', secs: 6, kind: 'yay' }
+];
+const TOTAL = STEPS.reduce((a, s) => a + s.secs, 0);
+const stepsEl = $('#steps');
+STEPS.forEach(s => { const li = document.createElement('li'); li.innerHTML = `<span>${s.name}</span><span class="t">${s.secs}s</span>`; stepsEl.appendChild(li); });
+const CIRC = 2 * Math.PI * 136;
+const prog = $('#prog'), clock = $('#clock'), stepName = $('#stepName'), cue = $('#cue'), yStart = $('#yStart'), breath = $('#breath');
+prog.setAttribute('stroke-dasharray', CIRC.toFixed(1));
+let yState = 'idle', yElapsed = 0, yLast = 0, yRaf = 0, yStep = -1, beats = [], laughCues = [];
+const CLAP_PATTERN = [0, 0.5, 1.0, 1.25, 1.5];
+function stepAt(t) { let acc = 0; for (let i = 0; i < STEPS.length; i++) { if (t < acc + STEPS[i].secs) return { i, start: acc }; acc += STEPS[i].secs; } return { i: STEPS.length - 1, start: TOTAL - STEPS[STEPS.length - 1].secs }; }
+function renderYoga() {
+  const remaining = Math.max(0, TOTAL - yElapsed);
+  const m = Math.floor(Math.ceil(remaining) / 60), s = Math.ceil(remaining) % 60;
+  clock.textContent = `${m}:${String(s).padStart(2, '0')}`;
+  prog.style.strokeDashoffset = (CIRC * (1 - Math.min(1, yElapsed / TOTAL))).toFixed(1);
+  const { i } = stepAt(Math.min(yElapsed, TOTAL - 0.001));
+  [...stepsEl.children].forEach((li, k) => {
+    li.toggleAttribute('data-on', yState !== 'idle' && yState !== 'done' && k === i);
+    li.toggleAttribute('data-done', (yState !== 'idle' && k < i) || yState === 'done');
+  });
+}
+function enterStep(i) {
+  yStep = i; const s = STEPS[i];
+  stepName.textContent = s.name; cue.textContent = s.cue;
+  beats = [];
+  if (s.kind === 'clap') for (let m = 0; m * 2 < s.secs; m++) CLAP_PATTERN.forEach((p, k) => beats.push({ t: m * 2 + p, accent: k < 2 ? 1 : 0.75 }));
+  if (s.kind === 'yay') beats.push({ t: 0, accent: 1 }, { t: 0.45, accent: 1 });
+  laughCues = s.kind === 'laugh' ? [0.2, s.secs * 0.55] : s.kind === 'yay' ? [s.secs * 0.6] : [];
+}
+function yTick(now) {
+  const dt = Math.min(0.1, (now - yLast) / 1000); yLast = now;
+  yElapsed += dt;
+  const { i, start } = stepAt(yElapsed);
+  if (i !== yStep) enterStep(i);
+  const local = yElapsed - start, s = STEPS[i];
+  while (beats.length && local >= beats[0].t) { const b = beats.shift(); Sound.clap(b.accent); }
+  if (s.kind === 'breath') { const ph = (local % 8) / 8; breath.style.transform = `scale(${0.75 + 0.25 * Math.sin(ph * Math.PI)})`; }
+  else breath.style.transform = '';
+  while (laughCues.length && local >= laughCues[0]) {
+    laughCues.shift();
+    if (s.kind === 'yay') laugh({ pitch: 330, notes: 3, noteMs: 90, gapMs: 170, vowel: 'e', inhale: false });
+    else laugh(TYPES[s.type]);
+  }
+  if (yElapsed >= TOTAL) { finishYoga(); return; }
+  renderYoga();
+  yRaf = requestAnimationFrame(yTick);
+}
+function startYoga() {
+  if (yState === 'running') { yState = 'paused'; cancelAnimationFrame(yRaf); yStart.textContent = 'Resume'; return; }
+  if (yState === 'done' || yState === 'idle') { yElapsed = 0; yStep = -1; }
+  yState = 'running'; yStart.textContent = 'Pause';
+  Sound.ensure();
+  yLast = performance.now(); yRaf = requestAnimationFrame(yTick);
+}
+function finishYoga() {
+  yState = 'done'; yElapsed = TOTAL; cancelAnimationFrame(yRaf);
+  stepName.textContent = 'Done'; cue.textContent = 'That was a full minute of laughing. Notice how your face and shoulders feel now.';
+  yStart.textContent = 'Go again';
+  renderYoga();
+  const r = $('.ring').getBoundingClientRect(); burst(r.left + r.width / 2, r.top + r.height / 2, 16);
+}
+function resetYoga() {
+  cancelAnimationFrame(yRaf); yState = 'idle'; yElapsed = 0; yStep = -1;
+  stepName.textContent = STEPS[0].name; cue.textContent = STEPS[0].cue; yStart.textContent = 'Start the minute';
+  breath.style.transform = ''; renderYoga();
+}
+yStart.addEventListener('click', startYoga);
+$('#yReset').addEventListener('click', resetYoga);
+renderYoga();
+
+/* ---------------- Quotes ---------------- */
+const QUOTES = [
+  ['Against the assault of laughter nothing can stand.', 'Mark Twain', 'The Mysterious Stranger'],
+  ['Laughter is the shortest distance between two people.', 'Victor Borge', 'pianist and comedian'],
+  ['Laughter is the sun that drives winter from the human face.', 'Victor Hugo', 'novelist'],
+  ['A cheerful heart is good medicine.', 'Proverbs 17:22', 'Hebrew Bible'],
+  ['The most wasted of all days is one without laughter.', 'Nicolas Chamfort', 'Maxims, 1795'],
+  ['Laughter is carbonated holiness.', 'Anne Lamott', 'writer'],
+  ['A sense of humor is part of the art of leadership, of getting along with people, of getting things done.', 'Dwight D. Eisenhower', 'president'],
+  ['Life is a tragedy when seen in close-up, but a comedy in long-shot.', 'Charlie Chaplin', 'filmmaker'],
+  ['Humor is the affectionate communication of insight.', 'Leo Rosten', 'humorist'],
+  ['Seven days without laughter makes one weak.', 'Mort Walker', 'cartoonist']
+];
+let qi = 0, qTimer = 0, qUser = false;
+const dots = $('#dots');
+QUOTES.forEach((q, i) => { const d = document.createElement('button'); d.type = 'button'; d.setAttribute('aria-label', `Quote ${i + 1}: ${q[1]}`); d.addEventListener('click', () => { qUser = true; showQuote(i); }); dots.appendChild(d); });
+function showQuote(i) {
+  qi = (i + QUOTES.length) % QUOTES.length;
+  const [t, w, s] = QUOTES[qi];
+  $('#qText').textContent = t; $('#qWho').textContent = w; $('#qSrc').textContent = s;
+  [...dots.children].forEach((d, k) => d.setAttribute('aria-current', String(k === qi)));
+  if (!reduceMotion.matches) retrigger($('#quote'), 'q-fade');
+}
+$('#qPrev').addEventListener('click', () => { qUser = true; showQuote(qi - 1); });
+$('#qNext').addEventListener('click', () => { qUser = true; showQuote(qi + 1); });
+showQuote(0);
+if (!reduceMotion.matches) qTimer = setInterval(() => { if (!qUser && !document.hidden) showQuote(qi + 1); }, 9000);
+$('.quotes').addEventListener('pointerenter', () => { qUser = true; });
+
+/* ---------------- Laugh log ---------------- */
+const LOG_KEY = 'ha.log';
+let log = store.get(LOG_KEY, {});
+let history = [];
+const EXAMPLE = [3, 6, 2, 8, 5, 9, 4];
+const dk = d => `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`;
+const dayFmt = new Intl.DateTimeFormat(undefined, { weekday: 'short' });
+const longFmt = new Intl.DateTimeFormat(undefined, { weekday: 'long', month: 'short', day: 'numeric' });
+function lastDays(n) { const out = []; const now = new Date(); for (let i = n - 1; i >= 0; i--) { const d = new Date(now.getFullYear(), now.getMonth(), now.getDate() - i); out.push(d); } return out; }
+function streak() {
+  let s = 0; const now = new Date();
+  let d = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+  if (!log[dk(d)]) d.setDate(d.getDate() - 1);
+  while (log[dk(d)] > 0) { s++; d.setDate(d.getDate() - 1); }
+  return s;
+}
+function drawChart() {
+  const days = lastDays(7);
+  const isExample = Object.keys(log).length === 0;
+  const vals = days.map((d, i) => isExample ? EXAMPLE[i] : (log[dk(d)] || 0));
+  const max = Math.max(4, ...vals);
+  const bars = $('#bars'), daysEl = $('#days');
+  bars.toggleAttribute('data-example', isExample);
+  $('#chip').textContent = isExample ? 'Example week · press the button to start yours' : 'Your last 7 days';
+  bars.innerHTML = ''; daysEl.innerHTML = '';
+  days.forEach((d, i) => {
+    const today = i === days.length - 1;
+    const col = document.createElement('div'); col.className = 'col';
+    if (today) col.dataset.today = '';
+    col.title = `${longFmt.format(d)}: ${vals[i]} laugh${vals[i] === 1 ? '' : 's'}${isExample ? ' (example)' : ''}`;
+    col.innerHTML = `<span class="v">${vals[i]}</span><span class="b" style="height:${(vals[i] / max) * 100}%"></span>`;
+    bars.appendChild(col);
+    const lab = document.createElement('span'); lab.textContent = today ? 'Today' : dayFmt.format(d);
+    if (today) lab.dataset.today = '';
+    daysEl.appendChild(lab);
+  });
+  bars.setAttribute('aria-label', (isExample ? 'Example data. ' : '') + days.map((d, i) => `${longFmt.format(d)}: ${vals[i]}`).join('; '));
+  $('#todayN').textContent = log[dk(new Date())] || 0;
+  $('#streakN').textContent = streak();
+  $('#bestN').textContent = Math.max(0, ...Object.values(log));
+}
+$('#laughed').addEventListener('click', e => {
+  const k = dk(new Date());
+  log[k] = (log[k] || 0) + 1; history.push(k);
+  store.set(LOG_KEY, log); drawChart();
+  laugh(TYPES[pick(['giggle', 'chortle', 'ha-ha', 'hee', 'guffaw'])]);
+  burstFrom(e.currentTarget, e, 10);
+  try { navigator.vibrate && navigator.vibrate(12); } catch (err) {}
+});
+$('#undo').addEventListener('click', () => {
+  const k = history.pop() || dk(new Date());
+  if (log[k] > 0) { log[k]--; if (!log[k]) delete log[k]; store.set(LOG_KEY, log); drawChart(); }
+});
+drawChart();
+
+const TASKS = [
+  'Call the friend who makes you laugh hardest. Don’t text. Call.',
+  'Rewatch the clip you have already seen forty times.',
+  'Tell someone the worst pun you know. Commit to it fully.',
+  'Find the funniest photo on your phone and send it to whoever is in it.',
+  'Ask someone: what is the hardest you have ever laughed?',
+  'Read the comics page. The actual one.',
+  'When something small goes wrong today, laugh first, then fix it.',
+  'Spend ten minutes with a kid or a dog. Follow their lead.',
+  'Teach the joke from the jar to someone who hasn’t heard it.',
+  'Put on a stand-up special you have never seen before.'
+];
+let ti = 0;
+$('#taskNext').addEventListener('click', () => { ti = (ti + 1 + Math.floor(Math.random() * (TASKS.length - 1))) % TASKS.length; $('#task').textContent = TASKS[ti]; });
+
+// test hook for offline rendering
+window.__laugh = { plan, schedule, makeNoise, TYPES, Sound };
+})();
+</script>
+</body>
+</html>
