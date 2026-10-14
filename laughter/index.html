@@ -747,24 +747,48 @@ const Sound = {
   ctx: null, master: null, noise: null, voices: 0,
   on: store.get('ha.sound', true),
   ensure() {
-    if (this.ctx) { if (this.ctx.state === 'suspended') this.ctx.resume(); return this.ctx; }
-    const AC = window.AudioContext || window.webkitAudioContext;
-    if (!AC) return null;
-    const c = new AC();
-    const comp = c.createDynamicsCompressor();
-    comp.threshold.value = -20; comp.knee.value = 12; comp.ratio.value = 5; comp.attack.value = 0.004; comp.release.value = 0.2;
-    const master = c.createGain(); master.gain.value = 0.9;
-    master.connect(comp); comp.connect(c.destination);
-    this.ctx = c; this.master = master; this.noise = makeNoise(c);
-    return c;
+    if (!this.ctx) {
+      const AC = window.AudioContext || window.webkitAudioContext;
+      if (!AC) return null;
+      // iOS: ask for the "playback" audio session so laughs play even when the
+      // Ring/Silent switch is set to silent (Safari 16.4+).
+      try { if (navigator.audioSession) navigator.audioSession.type = 'playback'; } catch (e) {}
+      const c = new AC();
+      const master = c.createGain(); master.gain.value = 1.6;
+      const comp = c.createDynamicsCompressor();
+      comp.threshold.value = -22; comp.knee.value = 6; comp.ratio.value = 10; comp.attack.value = 0.003; comp.release.value = 0.15;
+      const makeup = c.createGain(); makeup.gain.value = 1.2;
+      master.connect(comp); comp.connect(makeup); makeup.connect(c.destination);
+      this.ctx = c; this.master = master; this.noise = makeNoise(c);
+    }
+    if (this.ctx.state !== 'running') { const r = this.ctx.resume(); if (r && r.catch) r.catch(() => {}); }
+    return this.ctx;
+  },
+  // Called from the first tap or key press anywhere on the page. Starting the
+  // audio engine inside a real user gesture is what browsers require, and the
+  // silent <audio> element moves older iPhones onto the media channel.
+  unlock() {
+    const c = this.ensure(); if (!c) return;
+    try { const b = c.createBuffer(1, 1, c.sampleRate); const s = c.createBufferSource(); s.buffer = b; s.connect(c.destination); s.start(0); } catch (e) {}
+    if (!this.tag) {
+      try {
+        this.tag = new Audio(SILENT_WAV);
+        this.tag.setAttribute('playsinline', ''); this.tag.loop = true;
+        const p = this.tag.play(); if (p && p.catch) p.catch(() => {});
+      } catch (e) {}
+    }
   },
   play(pl, { pan = 0, delay = 0 } = {}) {
     if (!this.on) return false;
     const c = this.ensure(); if (!c) return false;
-    const t0 = c.currentTime + 0.03 + delay;
-    const end = schedule(c, this.master, this.noise, pl, t0, pan);
-    this.voices++;
-    setTimeout(() => { this.voices = Math.max(0, this.voices - 1); }, (end - c.currentTime) * 1000 + 60);
+    const go = () => {
+      const t0 = c.currentTime + 0.03 + delay;
+      const end = schedule(c, this.master, this.noise, pl, t0, pan);
+      this.voices++;
+      setTimeout(() => { this.voices = Math.max(0, this.voices - 1); }, (end - c.currentTime) * 1000 + 60);
+    };
+    if (c.state === 'running') go();
+    else c.resume().then(go, () => {});
     return true;
   },
   clap(accent = 1) {
@@ -781,6 +805,10 @@ const Sound = {
     src.start(t, Math.random() * 0.5); src.stop(t + 0.2);
   }
 };
+
+const SILENT_WAV = 'data:audio/wav;base64,UklGRrQBAABXQVZFZm10IBAAAAABAAEAQB8AAEAfAAABAAgAZGF0YZABAACAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICA';
+document.addEventListener('visibilitychange', () => { if (!Sound.tag) return; if (document.hidden) Sound.tag.pause(); else if (Sound.on) { const p = Sound.tag.play(); if (p && p.catch) p.catch(() => {}); } });
+['pointerdown', 'touchend', 'click', 'keydown'].forEach(ev => document.addEventListener(ev, () => { if (Sound.on) Sound.unlock(); }, { capture: true, passive: true }));
 
 function makeNoise(c) {
   const b = c.createBuffer(1, c.sampleRate, c.sampleRate);
@@ -1351,7 +1379,7 @@ let ti = 0;
 $('#taskNext').addEventListener('click', () => { ti = (ti + 1 + Math.floor(Math.random() * (TASKS.length - 1))) % TASKS.length; $('#task').textContent = TASKS[ti]; });
 
 // test hook for offline rendering
-window.__laugh = { plan, schedule, makeNoise, TYPES };
+window.__laugh = { plan, schedule, makeNoise, TYPES, Sound };
 })();
 </script>
 </body>
